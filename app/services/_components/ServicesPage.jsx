@@ -165,9 +165,9 @@ const categories = [
 
 const stats = [
   { value: "1M+", label: "Consumer Panel" }, // 1,000,000+ verified panel
-  { value: "300+", label: "Active Clients" }, // Over 300 active clients
-  { value: "2000+", label: "Projects Delivered" }, // 2,000+ projects
-  { value: "1000+", label: "Freelance Network" }, // 1,000+ freelance researchers
+  { value: "1000+", label: "Active Clients" }, // Over 300 active clients
+  { value: "5000+", label: "Projects Delivered" }, // 2,000+ projects
+  { value: "20+", label: "Years of Service" }, // 1,000+ freelance researchers
 ];
 
 // ─── Reusable card ─────────────────────────────────────────────────────────────

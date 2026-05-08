@@ -172,7 +172,7 @@ export default function IndustriesPage() {
               </h1>
               <p className="text-lg text-black leading-relaxed max-w-lg">
                 Every industry has its own language, buyers, and decision
-                cycles. NexGen's sector specialists bring pre-built frameworks
+                cycles. NexGen&apos;s sector specialists bring pre-built frameworks
                 and domain knowledge — so you get faster, sharper answers.
               </p>
             </div>

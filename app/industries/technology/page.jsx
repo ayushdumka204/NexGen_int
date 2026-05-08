@@ -1,95 +1,131 @@
 "use client";
-import React, { useState } from "react";
-import { Layers, Users, Building, Briefcase, RefreshCw } from "lucide-react";
+import React from "react";
+import { 
+  Layers, 
+  Users, 
+  Building, 
+  ChevronRight, 
+  Cpu, 
+  Globe, 
+  Smartphone 
+} from "lucide-react";
 import IndustriesCTA from "../_components/IndustriesCTA";
 
 const data = {
-  title: "Technology",
-  subsections: {
-    IT: "NexGen works closely with the IT industry. We have served more than 100 small, medium and large IT companies during last 2 decades.",
-    Communication:
-      "Our communication industry exposure includes studies like customers satisfaction, retail store audits and expectations of the consumers.",
-    Media:
-      "We have served more than 10 media houses for various research requirements in India.",
-  },
-};
-
-const iconMap = {
-  IT: Layers,
-  Communication: Users,
-  Media: Building,
-  default: Briefcase,
+  title: "Technology & IT",
+  intro: "The tech landscape is evolving so rapidly that merely surviving is no longer enough. For over two decades, NexGen International has been empowering IT and Media houses with the strategic insights needed to stay future-ready.",
+  subsections: [
+    {
+      title: "Information Technology (IT)",
+      icon: <Layers size={40} />,
+      accentColor: "border-[#80cb29]", 
+      bgColor: "bg-[#80cb29]/5",
+      content: "NexGen works in close synergy with the IT sector. Over the last 20 years, we have served more than 100 small, medium, and large-scale IT enterprises, providing end-to-end data support from software lifecycles to global market penetration.",
+      features: ["SaaS Market Research", "Digital Transformation Audit", "Competitor Benchmarking", "IT Infrastructure Studies"]
+    },
+    {
+      title: "Communication & Telecom",
+      icon: <Users size={40} />,
+      accentColor: "border-blue-400",
+      bgColor: "bg-blue-50/50",
+      content: "Our exposure in the communication industry is extensive. We analyze everything from retail store audits to consumer expectations and Customer Satisfaction (CSAT) metrics, ensuring your network and services remain at the industry forefront.",
+      features: ["Customer Satisfaction (CSAT)", "Retail Store Audits", "Telecom Consumer Behavior", "5G Adoption Insights"]
+    },
+    {
+      title: "Media & Entertainment",
+      icon: <Building size={40} />,
+      accentColor: "border-purple-400",
+      bgColor: "bg-purple-50/50",
+      content: "More than 10 leading media houses in India rely on our research for their strategic requirements. Whether it is audience measurement or content strategy, our data enables media giants to connect with the right audience effectively.",
+      features: ["Audience Measurement", "Content Performance Analysis", "Digital Media Strategy", "Ad-Recall Studies"]
+    }
+  ]
 };
 
 export default function TechnologyPage() {
-  const items = Object.entries(data.subsections);
-  const [flippedIndex, setFlippedIndex] = useState(null);
-
   return (
-    <div className="bg-white text-[var(--color-primary)] font-sans flex flex-col justify-center py-10 px-6">
-      {/* --- HEADER SECTION --- */}
-      <div className="max-w-4xl mx-auto text-center mb-12">
-        <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none">
-          {data.title}
-        </h1>
-        <div className="h-1.5 w-16 bg-[var(--color-accent)] mx-auto mt-6" />
-      </div>
+    <div className="bg-white font-sans">
+      
+      {/* --- OPTIMIZED HERO SECTION --- */}
+      <section className="bg-[#2c1161] py-20 px-6 text-center border-b-8 border-[#80cb29]">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-tight mb-6">
+            Technology <span className="text-[#80cb29]">& IT</span>
+          </h1>
+          <div className="h-1.5 w-16 bg-[#80cb29] mx-auto mb-8 rounded-full" />
+          <p className="text-lg md:text-xl text-purple-100/80 font-medium leading-relaxed max-w-2xl mx-auto">
+            {data.intro}
+          </p>
+        </div>
+      </section>
 
-      {/* --- FLIP CARDS GRID --- */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-        {items.map(([key, value], idx) => {
-          const IconComponent = iconMap[key] || iconMap.default;
-          const isFlipped = flippedIndex === idx;
-
-          return (
-            <div
-              key={key}
-              onClick={() => setFlippedIndex(isFlipped ? null : idx)}
-              className="group h-[280px] [perspective:1200px] cursor-pointer"
+      {/* --- CONTENT SECTIONS (Clean Cards) --- */}
+      <section className="max-w-7xl mx-auto py-24 px-6">
+        <div className="space-y-20">
+          {data.subsections.map((section, idx) => (
+            <div 
+              key={idx} 
+              className={`flex flex-col lg:flex-row items-stretch gap-0 rounded-[3rem] overflow-hidden border-2 border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
             >
-              <div
-                className={`relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] ${isFlipped ? "[transform:rotateY(180deg)]" : "group-hover:[transform:rotateY(180deg)]"}`}
-              >
-                {/* --- FRONT SIDE --- */}
-                <div className="absolute inset-0 h-full w-full rounded-2xl bg-white border-2 border-[var(--color-border)] flex flex-col items-center justify-center p-8 [backface-visibility:hidden]">
-                  <div className="mb-6 h-16 w-16 flex items-center justify-center rounded-2xl bg-[var(--color-border)]/30 text-[var(--color-accent)]">
-                    <IconComponent size={32} strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-xl font-black uppercase tracking-tight text-center">
-                    {key}
-                  </h3>
-
-                  {/* Updated UX Indicator (As per your changes) */}
-                  <div className="absolute bottom-6 flex items-center gap-2 text-[var(--color-accent)] transition-colors animate-pulse">
-                    <RefreshCw size={14} />
-                    <span className="text-[9px] font-bold uppercase tracking-[0.2em]">
-                      Tap to view
-                    </span>
-                  </div>
+              {/* SIDEBAR (Labels Removed) */}
+              <div className={`lg:w-1/3 p-12 flex flex-col items-center lg:items-start text-center lg:text-left ${section.bgColor} border-b-4 lg:border-b-0 lg:border-r-4 ${section.accentColor}`}>
+                <div className="mb-6 p-5 rounded-2xl bg-white text-[#2c1161] shadow-sm transition-transform hover:scale-110 duration-300">
+                  {section.icon}
                 </div>
+                <h2 className="text-3xl font-black text-[#2c1161] uppercase tracking-tight leading-tight">
+                  {section.title}
+                </h2>
+                {/* Sector label was here, now removed */}
+              </div>
 
-                {/* --- BACK SIDE --- */}
-                <div className="absolute inset-0 h-full w-full rounded-2xl bg-[var(--color-primary)] p-10 text-white [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center items-center text-center">
-                  <div className="absolute top-6 left-6 opacity-10 text-white">
-                    <IconComponent size={30} />
-                  </div>
-
-                  <h3 className="text-lg font-bold mb-4 text-[var(--color-accent)] uppercase tracking-wider">
-                    {key}
-                  </h3>
-
-                  <p className="text-[14px] leading-relaxed text-white/90 font-medium">
-                    {value}
-                  </p>
-
-                  <div className="mt-6 h-1 w-10 bg-[var(--color-accent)] rounded-full" />
+              {/* CONTENT AREA */}
+              <div className="lg:w-2/3 p-12 bg-white flex flex-col justify-center">
+                <p className="text-lg leading-relaxed text-slate-700 font-medium mb-8">
+                  {section.content}
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {section.features.map((feature, i) => (
+                    <div key={i} className="flex items-center gap-3 p-4 bg-slate-50/50 rounded-xl border border-slate-100 group hover:bg-white hover:border-[#2c1161] transition-all">
+                      <div className="h-6 w-6 rounded-full bg-[#2c1161] text-[#80cb29] flex items-center justify-center shrink-0">
+                        <ChevronRight size={12} strokeWidth={4} />
+                      </div>
+                      <span className="font-bold text-[#2c1161] text-[13px] uppercase tracking-wide">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-          );
-        })}
+          ))}
+        </div>
+      </section>
+
+      {/* --- CORE EXPERTISE STATS --- */}
+      <section className="bg-[#2c1161] py-20 px-6 border-y border-white/5">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-white">
+          <div className="space-y-4 group">
+            <Cpu className="mx-auto text-[#80cb29] group-hover:scale-110 transition-transform" size={40} />
+            <h4 className="text-5xl font-black italic">100+</h4>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-white/40">IT Clients Served</p>
+          </div>
+          <div className="space-y-4 group">
+            <Globe className="mx-auto text-[#80cb29] group-hover:scale-110 transition-transform" size={40} />
+            <h4 className="text-5xl font-black italic">20 Yrs</h4>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-white/40">Industry Exposure</p>
+          </div>
+          <div className="space-y-4 group">
+            <Smartphone className="mx-auto text-[#80cb29] group-hover:scale-110 transition-transform" size={40} />
+            <h4 className="text-5xl font-black italic">10+</h4>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-white/40">Global Media Houses</p>
+          </div>
+        </div>
+      </section>
+
+      <div className="py-10">
+        <IndustriesCTA />
       </div>
-      <IndustriesCTA />
     </div>
   );
 }

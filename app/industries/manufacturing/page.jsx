@@ -1,111 +1,157 @@
 "use client";
-import React, { useState } from "react";
-import {
-  Shield,
-  Sprout,
-  Cpu,
-  ShoppingCart,
-  Car,
-  Briefcase,
-  RefreshCw,
+import React from "react";
+import { 
+  Scissors, 
+  Beaker, 
+  Utensils, 
+  Trees, 
+  Sun, 
+  Hammer, 
+  ChevronRight, 
+  Globe, 
+  ShieldCheck, 
+  Zap 
 } from "lucide-react";
 import IndustriesCTA from "../_components/IndustriesCTA";
 
 const data = {
-  title: "Manufacturing",
-  subsections: {
-    Defence:
-      "We have done some in-depth studies in defence sector. Our defence sector reports being quoted by some of the foreign embassies.",
-    Agriculture:
-      "NexGen has done the intense coverage of the rural India. We have successfully executed a large number of research projects focused to agriculture sector and farmers in India.",
-    "Electricals and Electronics":
-      "There are number of electrical and electronic appliances companies have approached us for market research. Now we have a number of clients from white goods industry.",
-    // FMCG: "NexGen has a large number of clients from the Fast Moving Consumer Goods sector. We do a lot of Feasibility & U&A studies for FMCG products in India.",
-    Automobiles:
-      "We are proud to have some of the world leading automotive companies as our regular clients. Some of the main automobile studies includes vehicular preferences, features, and expectations.",
-  },
+  title: "Manufacturing & Industrial",
+  intro: "NexGen International’s expertise penetrates deep into the heart of factories and production lines. From Textiles to Renewable Energy, we provide manufacturers with the critical data needed to lead the global supply chain.",
+  subsections: [
+    {
+      title: "Textiles & Apparel",
+      icon: <Scissors size={40} />,
+      accentColor: "border-[#80cb29]", 
+      bgColor: "bg-[#80cb29]/5",
+      content: "The Indian textile industry is a cornerstone of the global market. We analyze data across fabrics, clothing, and technical textiles, focusing on export dynamics and domestic demand to ensure production aligns with global trends.",
+      features: ["Technical Textiles Market", "Apparel Demand Forecast", "Fabric Quality Standards", "Export Market Insights"]
+    },
+    {
+      title: "Chemicals & Petrochemicals",
+      icon: <Beaker size={40} />,
+      accentColor: "border-blue-400",
+      bgColor: "bg-blue-50/50",
+      content: "From fertilizers and plastics to specialized paints, we track the entire supply chain and raw material pricing for the petrochemical sector. Our data serves as a vital tool for effective risk management and market positioning.",
+      features: ["Fertilizer Demand Mapping", "Plastics & Polymers Research", "Paint Industry Trends", "Chemical Safety Audits"]
+    },
+    {
+      title: "Food Processing & Dairy",
+      icon: <Utensils size={40} />,
+      accentColor: "border-purple-400",
+      bgColor: "bg-purple-50/50",
+      content: "As the demand for packaged foods and beverages surges, we provide deep-dive analysis into dairy products and consumer packaged goods (CPG), focusing on shelf-life, consumer taste preferences, and distribution network efficiency.",
+      features: ["Beverage Market Dynamics", "Dairy Supply Chain", "Packaged Food Trends", "Quality Assurance Metrics"]
+    },
+    {
+      title: "Renewables & New Materials",
+      icon: <Sun size={40} />,
+      accentColor: "border-[#80cb29]",
+      bgColor: "bg-[#80cb29]/5",
+      content: "The future is Green. We analyze manufacturing trends in solar panels, high-capacity batteries, and advanced materials like composites to help you stay ahead in the global clean energy revolution.",
+      features: ["Solar Panel Efficiency", "Battery Storage Tech", "Advanced Materials Audit", "Carbon Footprint Studies"]
+    },
+    {
+      title: "Wood, Paper & Leather",
+      icon: <Trees size={40} />,
+      accentColor: "border-blue-400",
+      bgColor: "bg-blue-50/50",
+      content: "From high-end furniture to leather exports and sustainable paper products, we support craft-based and industrial manufacturing units with data-driven insights on sustainable sourcing and global demand.",
+      features: ["Sustainable Wood Sourcing", "Leather Goods Export", "Paper Product Demand", "Furniture Design Trends"]
+    },
+    {
+      title: "Capital Goods & Engineering",
+      icon: <Hammer size={40} />,
+      accentColor: "border-purple-400",
+      bgColor: "bg-purple-50/50",
+      content: "Heavy machinery and industrial tools are the lifelines of any economy. We track the reliability of engineering goods and the evolving requirements of industrial equipment to support large-scale infrastructure.",
+      features: ["Heavy Machinery Audit", "Tooling & Die Standards", "Engineering Goods Export", "Industrial Reliability Data"]
+    }
+  ]
 };
 
-const iconMap = {
-  Defence: Shield,
-  Agriculture: Sprout,
-  "Electricals and Electronics": Cpu,
-  FMCG: ShoppingCart,
-  Automobiles: Car,
-  default: Briefcase,
-};
-
-export default function ManufacturingPage() {
-  const items = Object.entries(data.subsections);
-  const [flippedIndex, setFlippedIndex] = useState(null);
-
+export default function ManufacturingCorePage() {
   return (
-    <div className="min-h-screen bg-white text-[var(--color-primary)] font-sans flex flex-col justify-center py-10 px-6">
-      {/* --- HEADER (Clean & Compact) --- */}
-      <div className="max-w-4xl mx-auto text-center mb-12">
-        <h1 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-none">
-          {data.title}
-        </h1>
-        <div className="h-1.5 w-16 bg-[var(--color-accent)] mx-auto mt-6" />
-      </div>
+    <div className="bg-white font-sans">
+      
+      {/* --- HERO SECTION --- */}
+      <section className="bg-[#2c1161] py-20 px-6 text-center border-b-8 border-[#80cb29]">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-tight mb-6">
+            <span className="text-[#80cb29]">Manufacturing</span> & Industrial
+          </h1>
+          <div className="h-1.5 w-16 bg-[#80cb29] mx-auto mb-8 rounded-full" />
+          <p className="text-lg md:text-xl text-purple-100/80 font-medium leading-relaxed max-w-2xl mx-auto">
+            {data.intro}
+          </p>
+        </div>
+      </section>
 
-      {/* --- FLIP CARDS GRID (The Bold Design) --- */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-        {items.map(([key, value], idx) => {
-          const IconComponent = iconMap[key] || iconMap.default;
-          const isFlipped = flippedIndex === idx;
-
-          return (
-            <div
-              key={key}
-              onClick={() => setFlippedIndex(isFlipped ? null : idx)}
-              className="group h-[280px] [perspective:1200px] cursor-pointer"
+      {/* --- CONTENT SECTIONS (Clean Minimal Cards) --- */}
+      <section className="max-w-7xl mx-auto py-24 px-6">
+        <div className="space-y-20">
+          {data.subsections.map((section, idx) => (
+            <div 
+              key={idx} 
+              className={`flex flex-col lg:flex-row items-stretch gap-0 rounded-[3rem] overflow-hidden border-2 border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
             >
-              <div
-                className={`relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] ${isFlipped ? "[transform:rotateY(180deg)]" : "group-hover:[transform:rotateY(180deg)]"}`}
-              >
-                {/* --- FRONT SIDE (Minimal & Professional) --- */}
-                <div className="absolute inset-0 h-full w-full rounded-2xl bg-white border-2 border-[var(--color-border)] flex flex-col items-center justify-center p-8 [backface-visibility:hidden]">
-                  <div className="mb-6 h-16 w-16 flex items-center justify-center rounded-2xl bg-[var(--color-border)]/30 text-[var(--color-accent)]">
-                    <IconComponent size={32} strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-xl font-black uppercase tracking-tight text-center">
-                    {key}
-                  </h3>
-
-                  {/* UX HINT: Subtle pulse icon to indicate flip */}
-                  <div className="absolute bottom-6 flex items-center gap-2 text-[var(--color-accent)] transition-colors animate-pulse">
-                    <RefreshCw size={14} className="rotate-45" />
-                    {/* <span className="text-[9px] font-bold uppercase tracking-[0.2em]">View Details</span> */}
-                    <span className="text-[9px] font-bold uppercase tracking-widest">
-                      Tap to view
-                    </span>
-                  </div>
+              {/* SIDEBAR (Label Removed) */}
+              <div className={`lg:w-1/3 p-12 flex flex-col items-center lg:items-start text-center lg:text-left ${section.bgColor} border-b-4 lg:border-b-0 lg:border-r-4 ${section.accentColor}`}>
+                <div className="mb-6 p-5 rounded-2xl bg-white text-[#2c1161] shadow-sm transition-transform hover:scale-110 duration-300">
+                  {section.icon}
                 </div>
+                <h2 className="text-3xl font-black text-[#2c1161] uppercase tracking-tight leading-tight">
+                  {section.title}
+                </h2>
+              </div>
 
-                {/* --- BACK SIDE (The Bold Primary Look you liked) --- */}
-                <div className="absolute inset-0 h-full w-full rounded-2xl bg-[var(--color-primary)] p-10 text-white [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center items-center text-center">
-                  {/* Subtle Background Icon Decor */}
-                  <div className="absolute top-6 left-6 opacity-10">
-                    <IconComponent size={30} />
-                  </div>
-
-                  <h3 className="text-lg font-bold mb-4 text-[var(--color-accent)] uppercase tracking-wider">
-                    {key}
-                  </h3>
-
-                  <p className="text-[14px] leading-relaxed text-white/90 font-medium">
-                    {value}
-                  </p>
-
-                  <div className="mt-6 h-1 w-10 bg-[var(--color-accent)] rounded-full" />
+              {/* CONTENT AREA */}
+              <div className="lg:w-2/3 p-12 bg-white flex flex-col justify-center">
+                <p className="text-lg leading-relaxed text-slate-700 font-medium mb-8">
+                  {section.content}
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {section.features.map((feature, i) => (
+                    <div key={i} className="flex items-center gap-3 p-4 bg-slate-50/50 rounded-xl border border-slate-100 group hover:bg-white hover:border-[#2c1161] transition-all">
+                      <div className="h-6 w-6 rounded-full bg-[#2c1161] text-[#80cb29] flex items-center justify-center shrink-0">
+                        <ChevronRight size={12} strokeWidth={4} />
+                      </div>
+                      <span className="font-bold text-[#2c1161] text-[12px] uppercase tracking-wide">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-          );
-        })}
+          ))}
+        </div>
+      </section>
+
+      {/* --- CORE STATS BAR --- */}
+      <section className="bg-[#2c1161] py-20 px-6 border-y border-white/5">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-white">
+          <div className="space-y-4 group">
+            <Globe className="mx-auto text-[#80cb29] group-hover:scale-110 transition-transform" size={40} />
+            <h4 className="text-5xl font-black italic">Global</h4>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-white/40">Supply Chain Reach</p>
+          </div>
+          <div className="space-y-4 group">
+            <ShieldCheck className="mx-auto text-[#80cb29] group-hover:scale-110 transition-transform" size={40} />
+            <h4 className="text-5xl font-black italic">ISI/ISO</h4>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-white/40">Compliance Data</p>
+          </div>
+          <div className="space-y-4 group">
+            <Zap className="mx-auto text-[#80cb29] group-hover:scale-110 transition-transform" size={40} />
+            <h4 className="text-5xl font-black italic">Zero</h4>
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-white/40">Waste Strategy</p>
+          </div>
+        </div>
+      </section>
+
+      <div className="py-10">
+        <IndustriesCTA />
       </div>
-      <IndustriesCTA />
     </div>
   );
 }
