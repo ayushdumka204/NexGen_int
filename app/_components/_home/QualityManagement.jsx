@@ -34,18 +34,18 @@ const qualityFeatures = [
 
 export default function QualityManagement() {
   return (
-    <section className="bg-white py-10 overflow-hidden">
+    <section className="bg-white pt-16 py-18 overflow-hidden">
       {" "}
       <div className="max-w-7xl mx-auto px-6">
         {/* TOP HEADING */}
-        <div className="mb-12">
+        <div className="mb-8">
           {/* <span className="text-sm font-bold tracking-widest uppercase text-accent">
             What We Provide
           </span> */}
 
           <h2 className="text-4xl md:text-5xl font-black text-(--color-primary) mt-4 leading-tight">
-            Operations & <br /> Quality{" "}
-            <span className="text-accent">Management</span>
+            Operations & Quality 
+            <span className="text-accent"> Management</span>
           </h2>
         </div>
         {/* FEATURED IMAGE CARD */}

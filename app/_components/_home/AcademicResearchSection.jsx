@@ -76,7 +76,7 @@ export default function MergedResearchSection() {
       </section>
 
       {/* ---------- SECTION 2 (Academic - Image Right) ---------- */}
-      <section className="py-16 md:py-24 bg-(--color-background)">
+      <section className="py-16 md:pt-12 pb-12 bg-(--color-background)">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* CONTENT - Left Side */}

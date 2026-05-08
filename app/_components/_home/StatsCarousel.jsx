@@ -127,7 +127,7 @@ export default function StatsCarousel({
       {(heading || subheading) && (
         <div className="text-center mb-12 px-4">
           {heading && (
-            <p className="text-2xl sm:text-3xl md:text-4xl font-black uppercase text-[var(--color-accent)] mb-3">
+            <p className="text-2xl sm:text-3xl md:text-4xl font-black uppercase text-[var(--color-accent)] mb-1">
               {heading}
             </p>
           )}
@@ -136,7 +136,7 @@ export default function StatsCarousel({
               {subheading}
             </h2>
           )}
-          <div className="mx-auto mt-4 w-12 h-[3px] rounded-full bg-[var(--color-accent)]" />
+          <div className="mx-auto mt-2 w-12 h-[3px] rounded-full bg-[var(--color-accent)]" />
         </div>
       )}
 

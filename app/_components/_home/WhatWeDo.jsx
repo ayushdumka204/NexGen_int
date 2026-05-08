@@ -46,7 +46,7 @@ const WhatWeDo = () => {
   const offset = idx * (100 / total); 
 
   return (
-    <section className="relative py-20 md:py-28 bg-slate-50 overflow-hidden">
+    <section className="relative py-20 md:pt-36 pb-12 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* ── LEFT — Content ─────────────────────────────── */}
