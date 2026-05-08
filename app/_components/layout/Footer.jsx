@@ -1,204 +1,162 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
-import {
-  Linkedin,
-  Twitter,
-  MapPin,
-  Mail,
-  Phone,
-  Facebook,
-  Instagram,
-  Youtube,
+import { 
+  LogIn,
+  UserPlus
 } from "lucide-react";
 
-export default function Footer() {
+const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    {
-      icon: Facebook,
-      href: "https://www.facebook.com/nexgenresearchint",
-      label: "Facebook",
-    },
-    {
-      icon: Twitter,
-      href: "https://x.com/ResearchNexgen",
-      label: "Twitter (X)",
-    },
-    {
-      icon: Instagram,
-      href: "https://www.instagram.com/nexgen_official_360/",
-      label: "Instagram",
-    },
-    {
-      icon: Linkedin,
-      href: "https://www.linkedin.com/company/nexgen-market-research-services/",
-      label: "LinkedIn",
-    },
-    {
-      icon: Youtube,
-      href: "https://www.youtube.com/@NexGenMarketResearch",
-      label: "YouTube",
-    },
-  ];
-
-  const insightLinks = [
-    { label: "Project Updates and News", href: "/insights/project-updates-and-news" },
-    { label: "Blogs and Articles", href: "/insights/blogs-and-articles" },
-    { label: "Case Studies", href: "/insights/case-studies" },
-  ];
-
   return (
-    <footer className="bg-(--color-primary) text-white pt-16">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-14">
+    <footer className="mt-20 font-sans bg-[#1a0b2e] text-slate-300 border-t border-purple-900/50">
+      
+      {/* --- TOP SECTION --- */}
+      <div className="max-w-7xl mx-auto py-16 px-6">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           
-          {/* CONTACT */}
-          <div className="lg:col-span-2">
-            <FooterHeading title="Contact Us" />
+          {/* Column 1: Brand + Intro + Social (Exact UI Style) */}
+          <div>
+            <h2 className="text-3xl font-black text-white tracking-tighter mb-5 uppercase">
+              NexGen<span className="text-accent">Int.</span>
+            </h2>
+            <p className="text-[15px] leading-relaxed mb-8 text-slate-200 font-medium">
+              Empowering global enterprises with high-precision data frameworks and strategic market insights.
+            </p>
+            
+            <p className="uppercase text-[11px] text-accent font-black tracking-[0.3em] mb-5">
+              FOLLOW US
+            </p>
 
-            <div className="space-y-5 text-base text-white/80 max-w-md leading-relaxed">
-              <div className="flex gap-3 items-start">
-                <MapPin className="text-accent mt-1 shrink-0" size={20} />
-                <p>
-                  A 26, Block B, Mohan Cooperative Industrial Estate, New Delhi, Delhi 110044
-                </p>
-              </div>
+            <div className="flex flex-wrap gap-5 items-center">
+              {/* Facebook */}
+              <a href="https://www.facebook.com/nexgenresearchint" target="_blank" className="transition-transform hover:scale-110">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook" className="h-7 w-7" />
+              </a>
 
-              <div className="flex items-center gap-3">
-                <Mail className="text-accent" size={20} />
-                <a
-                  href="mailto:mail@nexgenint.com"
-                  className="hover:text-accent transition"
-                >
-                  mail@nexgenint.com
-                </a>
-              </div>
+              {/* LinkedIn */}
+              <a href="https://www.linkedin.com/company/nexgen-market-research-services/" target="_blank" className="transition-transform hover:scale-110">
+                <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn" className="h-7 w-7" />
+              </a>
 
-              <div className="flex items-center gap-3">
-                <Phone className="text-accent" size={20} />
-                <a
-                  href="tel:+919873177449"
-                  className="hover:text-accent transition"
-                >
-                  +91-98731 77449
-                </a>
-              </div>
-            </div>
+              {/* Instagram */}
+              <a href="https://www.instagram.com/nexgen_official_360/" target="_blank" className="transition-transform hover:scale-110">
+                <img src="https://cdn-icons-png.flaticon.com/512/15707/15707749.png" alt="Instagram" className="h-7 w-7" />
+              </a>
 
-            {/* SOCIAL ICONS */}
-            <div className="flex gap-4 mt-16">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
+              {/* YouTube */}
+              <a href="https://www.youtube.com/@NexGenMarketResearch" target="_blank" className="transition-transform hover:scale-110">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" className="h-7 w-7" />
+              </a>
 
-                return (
-                  <Link
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="w-11 h-11 rounded-lg border border-white/20 bg-white/5 backdrop-blur-sm flex items-center justify-center text-white/70 hover:bg-accent hover:text-(--color-primary) transition-all duration-300"
-                  >
-                    <Icon size={18} />
-                    <span className="sr-only">{social.label}</span>
-                  </Link>
-                );
-              })}
+              {/*<a href="https://x.com/ResearchNexgen" target="_blank" className="transition-transform duration-300 hover:scale-110">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968830.png" alt="X Twitter" className="h-7 w-7 object-contain" />
+              </a>*/}
             </div>
           </div>
 
-          {/* INSIGHTS */}
-          <MenuColumn title="Insights" links={insightLinks} />
+          {/* Column 2: Contact Info (Exact Reference Style) */}
+          <div>
+            <p className="text-white text-[12px] font-black uppercase tracking-[0.3em] mb-6">
+              CONTACT US
+            </p>
 
-          {/* SERVICES */}
-          <MenuColumn
-            title="Services"
-            links={[
-              { label: "Online Research Services", href: "/services/online-research-services" },
-              { label: "B2B Marketing Research", href: "/services/b2b-marketing-research" },
-              { label: "B2C Marketing Research", href: "/services/b2c-marketing-research" },
-              { label: "Qualitative Research", href: "/services/qualitative-research" },
-              { label: "Quantitative Research", href: "/services/quantitative-research" },
-              { label: "Secondary Research", href: "/services/secondary-research" },
-              { label: "Data Collection", href: "/services/data-collection" },
-              { label: "Market Share Reports", href: "/services/market-share-reports" },
-              { label: "Feasibility and Market Entry", href: "/services/feasibility-and-market-entry" },
-            ]}
-          />
+            <div className="text-[15px] space-y-5 mb-6">
+              <div>
+                <span className="font-bold text-accent block mb-1 uppercase text-[10px] tracking-widest">Delhi Office:</span>
+                <p className="text-slate-100 font-medium leading-relaxed">A 26, Block B, Mohan Cooperative Industrial Estate, New Delhi, 110044</p>
+              </div>
+              <div>
+                <span className="font-bold text-accent block mb-1 uppercase text-[10px] tracking-widest">Haldwani Office:</span>
+                <p className="text-slate-100 font-medium leading-relaxed">Bareilly - Nainital Rd, near Mahaveer Flour Mill, Gorapadao, Haldwani, 263139</p>
+              </div>
+            </div>
 
-          {/* INDUSTRIES */}
-          <MenuColumn
-            title="Industries"
-            links={[
-              { label: "Manufacturing", href: "/industries/manufacturing" },
-              { label: "Healthcare", href: "/industries/healthcare-pharma" },
-              { label: "Technology", href: "/industries/technology" },
-              { label: "Automobile", href: "/industries/automobile" },
-              { label: "Education", href: "/industries/education" },
-            ]}
-          />
+            <ul className="space-y-4 text-[15px] font-bold">
+              <li className="flex items-center gap-3">
+                <span className="text-accent text-lg">☎</span>
+                <a href="tel:+919873177449" className="hover:text-accent transition text-white">+91-98731 77449</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-accent text-lg">✉</span>
+                <a href="mailto:mail@nexgenint.com" className="hover:text-accent transition break-all text-white">mail@nexgenint.com</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Quick Links (› Style) */}
+          <div>
+            <p className="text-white text-[12px] font-black uppercase tracking-[0.3em] mb-6">
+              Quick Links
+            </p>
+            <nav className="flex flex-col gap-3.5 text-[15px] font-medium">
+              {[
+                { label: "B2B Market Research", href: "/services/b2b-marketing-research" },
+                { label: "Quantitative Analysis", href: "/services/quantitative-research" },
+                { label: "Qualitative Insights", href: "/services/qualitative-research" },
+                { label: "Data Collection", href: "/services/data-collection" },
+                { label: "Industries", href: "/industries" },
+                { label: "Contact Us", href: "/contact" },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-slate-300 hover:text-accent hover:translate-x-1 transition-all duration-200"
+                >
+                  › {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Column 4: Start a Project + Auth */}
+          <div>
+            <p className="text-white text-[12px] font-black uppercase tracking-[0.3em] mb-6">
+              START A PROJECT
+            </p>
+            <p className="text-[15px] leading-relaxed mb-8 text-slate-200 font-medium">
+              Ready to take your business to the next level? Let&apos;s discuss your research goals today.
+            </p>
+            
+            <div className="space-y-3">
+              <Link
+                href="/contact"
+                className="flex w-full items-center justify-center rounded-lg bg-accent px-6 py-3.5 text-[12px] font-black uppercase tracking-widest text-primary hover:opacity-90 transition-all shadow-lg shadow-accent/10"
+              >
+                Get in Touch
+              </Link>
+              
+              <div className="flex gap-2">
+                <Link href="/login" className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-white/5 border border-white/10 rounded-lg text-[11px] font-bold text-white hover:bg-white/10 transition">
+                  <LogIn size={14} className="text-accent" /> Login
+                </Link>
+                <Link href="/signup" className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-white/5 border border-white/10 rounded-lg text-[11px] font-bold text-white hover:bg-white/10 transition">
+                  <UserPlus size={14} className="text-accent" /> Sign Up
+                </Link>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      {/* 🔥 STRONG BOTTOM */}
-      <div className="border-t border-white/10 py-6">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/60">
-          
-          {/* LEFT */}
-          <p>
+      {/* --- BOTTOM BAR --- */}
+      <div className="bg-black/20 border-t border-white/5">
+        <div className="max-w-7xl mx-auto py-8 flex flex-col items-center justify-center text-center gap-4 px-6">
+          <div className="flex flex-wrap justify-center gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-white/40">
+            <Link href="/privacy-policy" className="hover:text-accent transition">Privacy Policy</Link>
+            <Link href="/confidential-info" className="hover:text-accent transition">Confidentiality</Link>
+            <Link href="/terms-conditions" className="hover:text-accent transition">Terms & Conditions</Link>
+          </div>
+          <p className="text-[10px] font-bold text-white/20 tracking-widest uppercase">
             © {currentYear} NexGen Market Research Services Pvt. Ltd. All rights reserved.
           </p>
-
-          {/* RIGHT */}
-          <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="hover:text-accent transition">
-              Privacy Policy
-            </Link>
-            <Link href="/terms-and-conditions" className="hover:text-accent transition">
-              Terms & Conditions
-            </Link>
-            <Link href="/confidentiality" className="hover:text-accent transition">
-              Confidentiality
-            </Link>
-          </div>
-
         </div>
       </div>
     </footer>
   );
-}
+};
 
-/* 🔥 COMPONENTS */
-
-function FooterHeading({ title }) {
-  return (
-    <h3 className="text-xl font-bold mb-6">
-      {title}
-      <span className="block w-10 h-0.5 bg-accent mt-2" />
-    </h3>
-  );
-}
-
-function MenuColumn({ title, links }) {
-  return (
-    <div>
-      <FooterHeading title={title} />
-
-      <ul className="space-y-4 text-base text-white/80">
-        {links.map((link, i) => (
-          <li key={i}>
-            <Link
-              href={link.href}
-              className="hover:text-accent transition flex items-center gap-2"
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+export default Footer;
