@@ -11,7 +11,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-20 font-sans bg-[#1a0b2e] text-slate-300 border-t border-purple-900/50">
+    // Background updated to #2c1161 as requested
+    <footer className="mt-20 font-sans bg-[#2c1161] text-slate-300 border-t border-purple-900/50">
       
       {/* --- TOP SECTION --- */}
       <div className="max-w-7xl mx-auto py-16 px-6">
@@ -19,8 +20,8 @@ const Footer = () => {
           
           {/* Column 1: Brand + Intro + Social (Exact UI Style) */}
           <div>
-            <h2 className="text-3xl font-black text-white tracking-tighter mb-5 uppercase">
-              NexGen<span className="text-accent">Int.</span>
+            <h2 className="text-3xl font-black text-white tracking-tighter mb-5">
+              NexGen<span className="text-accent"> Int.</span>
             </h2>
             <p className="text-[15px] leading-relaxed mb-8 text-slate-200 font-medium">
               Empowering global enterprises with high-precision data frameworks and strategic market insights.
@@ -50,10 +51,6 @@ const Footer = () => {
               <a href="https://www.youtube.com/@NexGenMarketResearch" target="_blank" className="transition-transform hover:scale-110">
                 <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" className="h-7 w-7" />
               </a>
-
-              {/*<a href="https://x.com/ResearchNexgen" target="_blank" className="transition-transform duration-300 hover:scale-110">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968830.png" alt="X Twitter" className="h-7 w-7 object-contain" />
-              </a>*/}
             </div>
           </div>
 
@@ -143,14 +140,14 @@ const Footer = () => {
       </div>
 
       {/* --- BOTTOM BAR --- */}
-      <div className="bg-black/20 border-t border-white/5">
+      <div className="bg-black/30 border-t border-white/5">
         <div className="max-w-7xl mx-auto py-8 flex flex-col items-center justify-center text-center gap-4 px-6">
-          <div className="flex flex-wrap justify-center gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-white/40">
+          <div className="flex flex-wrap justify-center gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-white/80">
             <Link href="/privacy-policy" className="hover:text-accent transition">Privacy Policy</Link>
-            <Link href="/confidential-info" className="hover:text-accent transition">Confidentiality</Link>
-            <Link href="/terms-conditions" className="hover:text-accent transition">Terms & Conditions</Link>
+            <Link href="/confidentiality" className="hover:text-accent transition">Confidentiality</Link>
+            <Link href="/terms-and-conditions" className="hover:text-accent transition">Terms & Conditions</Link>
           </div>
-          <p className="text-[10px] font-bold text-white/20 tracking-widest uppercase">
+          <p className="text-[10px] font-bold text-white/60 tracking-widest uppercase">
             © {currentYear} NexGen Market Research Services Pvt. Ltd. All rights reserved.
           </p>
         </div>

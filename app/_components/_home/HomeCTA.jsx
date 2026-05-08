@@ -7,7 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 export default function NexGenStrategicSection() {
   return (
     /* Wide padding (px-6 to px-12) and large bottom space for professional breathing */
-    <section className="w-full pt-16 pb-30 flex items-center justify-center px-6 md:px-12 bg-white">
+    <section className="w-full pt-16 pb-16 flex items-center justify-center px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
 
         {/* --- Balanced Heading (Wide & Clean) --- */}

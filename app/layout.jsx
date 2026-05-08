@@ -3,7 +3,7 @@ import LayoutWrapper from "./_components/layout/LayoutWrapper";
 // import CookieConsent from "./_components/ui/CookieConsent";
 
 export const metadata = {
-  title: "NexGen Academic Research | Research Consultancy & Support",
+  title: "NexGen int | Research Consultancy & Support",
   description:
     "NexGen Academic Research offers expert academic research consultancy, research design, methodology, data analysis, and full research support services.",
 };

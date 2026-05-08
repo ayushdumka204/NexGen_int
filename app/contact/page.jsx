@@ -26,7 +26,7 @@ export default function ContactPage() {
 
         {/* Typography Focus Hero */}
         <h1 className="text-5xl md:text-8xl font-bold mb-8">
-          <span className="text-[var(--color-primary)]">LET'S DRIVE YOUR</span>
+          <span className="text-[var(--color-primary)]">LET&apos;S DRIVE YOUR</span>
           <br />
           <span className="text-[var(--color-accent)]">RESEARCH</span>{" "}
           <span className="text-[var(--color-primary)] uppercase">FORWARD</span>
