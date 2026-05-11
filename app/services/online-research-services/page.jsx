@@ -5,6 +5,8 @@ import ServicesCTA from "../_components/ServicesCTA";
 
 export const metadata = {
   title: "Top Online Market Research Firm | Data Collection Services",
+  description:
+    "NexGen is a leading market research company offering online surveys, consumer panels, and data collection services for actionable insights.",
 };
 
 const data = {

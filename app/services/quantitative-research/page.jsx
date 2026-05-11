@@ -175,7 +175,7 @@ export default function QuantitativeResearchPage() {
             </h1>
             <p className="text-lg leading-relaxed text-black">
               Quantitative research is the foundation of measurable market intelligence.
-              NexGen's quantitative data collection services are designed to generate
+              NexGen&apos;s quantitative data collection services are designed to generate
               statistically reliable findings at scale — enabling clients to measure
               market size, track brand performance over time, segment consumer
               populations, and benchmark their position against competitors with precision.
@@ -197,9 +197,9 @@ export default function QuantitativeResearchPage() {
           <div className="space-y-2">
             <SectionHeading icon={Table} title="Online Surveys — CAWI" />
             <p className="text-base leading-relaxed text-black max-w-3xl pl-8">
-              Computer-Assisted Web Interviewing (CAWI) is NexGen's most widely deployed
+              Computer-Assisted Web Interviewing (CAWI) is NexGen&apos;s most widely deployed
               online data collection method. Our surveys reach respondents across desktop,
-              mobile, and tablet devices through NexGen's proprietary consumer panel of
+              mobile, and tablet devices through NexGen&apos;s proprietary consumer panel of
               over 20,00,000 pre-screened participants spanning all major demographics,
               geographies, and consumer segments across India.
             </p>
@@ -214,7 +214,7 @@ export default function QuantitativeResearchPage() {
                 desc="Scalable, rapid and cost-effective online surveys"
               />
               <p className="text-sm leading-relaxed text-black">
-                NexGen's CAWI platform supports adaptive questionnaire design — incorporating
+                NexGen&apos;s CAWI platform supports adaptive questionnaire design — incorporating
                 skip logic, response piping, MaxDiff scaling, conjoint analysis, and multimedia
                 stimuli. Real-time fieldwork dashboards allow clients to monitor progress and
                 data quality live. All online surveys include a respondent privacy notice, and
@@ -250,9 +250,9 @@ export default function QuantitativeResearchPage() {
             <SectionHeading icon={UserCheck} title="Face-to-Face Surveys — CAPI" />
             <p className="text-base leading-relaxed text-black max-w-3xl pl-8">
               Computer-Assisted Personal Interviewing (CAPI) enables NexGen to reach
-              respondents across the full breadth of India's geographic and demographic
+              respondents across the full breadth of India&apos;s geographic and demographic
               landscape, including rural and semi-urban populations that online panels
-              cannot adequately represent. NexGen operates one of India's most extensive
+              cannot adequately represent. NexGen operates one of India&apos;s most extensive
               face-to-face fieldwork networks, with 500+ trained interviewers across 300+ cities.
             </p>
           </div>
@@ -276,10 +276,10 @@ export default function QuantitativeResearchPage() {
               <p className="text-sm leading-relaxed text-black">
                 All CAPI surveys are conducted on tablet-based devices with offline data capture,
                 GPS location tagging, and interviewer photo verification — providing a complete
-                digital audit trail for every interview. NexGen's interviewers are formally trained
+                digital audit trail for every interview. NexGen&apos;s interviewers are formally trained
                 and assessed before deployment; Field Managers provide real-time supervision. 30%
                 of all CAPI interviews are subject to independent back-check validation under
-                NexGen's quality control programme.
+                NexGen&apos;s quality control programme.
               </p>
               <div className="flex flex-wrap gap-2">
                 {["Tablet-Based","GPS & Photo Verified","In-Home | CLT | Mall | Healthcare"].map(t => <Tag key={t} text={t} />)}
@@ -313,9 +313,9 @@ export default function QuantitativeResearchPage() {
           <div className="space-y-2">
             <SectionHeading icon={Phone} title="Telephonic Surveys — CATI" />
             <p className="text-base leading-relaxed text-black max-w-3xl pl-8">
-              Computer-Assisted Telephone Interviewing (CATI) is NexGen's preferred
+              Computer-Assisted Telephone Interviewing (CATI) is NexGen&apos;s preferred
               methodology for B2B research, professional audience surveys, and studies
-              requiring rapid national coverage. NexGen's centralised CATI operations use
+              requiring rapid national coverage. NexGen&apos;s centralised CATI operations use
               standardised, supervisor-monitored scripts, maximising interviewer consistency
               and response reliability.
             </p>
@@ -330,7 +330,7 @@ export default function QuantitativeResearchPage() {
                 desc="Centralised, monitored telephonic data collection"
               />
               <p className="text-sm leading-relaxed text-black">
-                NexGen's CATI facility uses structured interviewer scripts administered via a
+                NexGen&apos;s CATI facility uses structured interviewer scripts administered via a
                 purpose-built platform with automated call management and real-time supervisor
                 monitoring. Multi-language interviewing is available across all major Indian
                 languages. CATI is particularly well-suited to B2B research, healthcare professional

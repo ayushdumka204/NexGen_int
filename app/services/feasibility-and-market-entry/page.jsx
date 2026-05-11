@@ -5,6 +5,8 @@ import ServicesCTA from "../_components/ServicesCTA";
 
 export const metadata = {
   title: "Market Entry Reports and Consulting Support",
+  description:
+    "NexGen provides feasibility and market entry reports with in-depth analysis and consulting support for informed business decisions.",
 };
 
 export default function FeasibilityPremium() {

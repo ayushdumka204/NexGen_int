@@ -4,6 +4,8 @@ import ServicesCTA from "../_components/ServicesCTA";
 
 export const metadata = {
   title: "Market Research Consulting | Market Survey Consultants",
+  description:
+    "NexGen offers market research consulting services with strategic insights to help businesses identify opportunities and drive growth.",
 };
 
 const data = {

@@ -86,7 +86,7 @@ export default function SecondaryResearchPage() {
             </div>
 
             <p className="text-lg leading-relaxed text-black">
-              NexGen's secondary research team synthesises intelligence from authoritative
+              NexGen&apos;s secondary research team synthesises intelligence from authoritative
               sources including government databases (Ministry of Commerce, MOSPI, Census
               of India), industry publications (CMIE, Bloomberg, IBEF, Euromonitor),
               regulatory filings, academic journals, export-import databases, and

@@ -141,7 +141,7 @@ export default function QualitativeResearchPage() {
                 Quantitative data reveals the scale and direction of market
                 phenomena. Qualitative research reveals the reasoning behind
                 them — the attitudes, motivations, cultural contexts, and
-                emotional drivers that shape consumer behaviour. NexGen's
+                emotional drivers that shape consumer behaviour. NexGen&apos;s
                 qualitative practice is built on a senior team of experienced
                 moderators, qualitative interviewers, and behavioural
                 researchers with deep expertise across healthcare, consumer
@@ -149,7 +149,7 @@ export default function QualitativeResearchPage() {
               </p>
               <p className="text-sm  italic border-l-2 border-[var(--color-accent)] pl-4 text-black">
                 All qualitative research at NexGen is conducted in accordance
-                with ESOMAR's guidelines for qualitative methods and the MRSI
+                with ESOMAR&apos;s guidelines for qualitative methods and the MRSI
                 Code of Conduct. Respondent anonymity is protected at all times;
                 participation is voluntary and fully informed.
               </p>
@@ -175,7 +175,7 @@ export default function QualitativeResearchPage() {
             <span className="text-[var(--color-accent)]">Methods</span>
           </h2>
           <p className="text-center text-black mb-12 max-w-2xl mx-auto">
-            NexGen's four qualitative research methods — each serves a distinct
+            NexGen&apos;s four qualitative research methods — each serves a distinct
             role in the insight process
           </p>
 

@@ -4,6 +4,8 @@ import ServicesCTA from "../_components/ServicesCTA";
 
 export const metadata = {
   title: "Market Research Survey and Reports | Data Analysis",
+  description:
+    "NexGen provides market share reports and competitor analysis services to help businesses improve strategies and plan future growth.",
 };
 
 export default function MarketShareReports() {

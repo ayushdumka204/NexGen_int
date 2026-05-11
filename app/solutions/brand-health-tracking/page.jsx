@@ -83,13 +83,13 @@
 //   );
 // }
 
-import ComingSoon from '../../_components/utils/comingsoon'
+import Solutions from "../../solutions/page";
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      <ComingSoon/>
+      <Solutions/>
     </div>
   )
 }

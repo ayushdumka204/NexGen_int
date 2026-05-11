@@ -66,7 +66,7 @@ export default function DataCollectionPage() {
           {/* Left — description */}
           <div className="space-y-5">
             <p className="text-base leading-relaxed text-black">
-              NexGen's academic data collection services support universities,
+              NexGen&apos;s academic data collection services support universities,
               public health bodies, government ministries, NGOs, and
               international development organisations. Our academic research
               team is experienced in designing and executing fieldwork that

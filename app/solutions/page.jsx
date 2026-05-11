@@ -16,43 +16,36 @@ const solutions = [
   {
     Icon: ShieldCheck,
     title: "Brand Health Tracking",
-    href: "/solutions/brand-health-tracking",
     desc: "Continuously monitor your brand's awareness, consideration, preference, and loyalty against key competitors. Our tracking studies give you a real-time pulse on how your brand is perceived — and alert you the moment something shifts.",
   },
   {
     Icon: Smile,
     title: "Customer Experience (CX)",
-    href: "/solutions/consumer-segmentation",
     desc: "Measure satisfaction, effort, and loyalty at every touchpoint in the customer journey. From NPS and CSAT to in-depth journey mapping — we help you find the friction points that are quietly costing you retention.",
   },
   {
     Icon: Activity,
     title: "Usage & Attitude (U&A)",
-    href: "/solutions/usage-and-attitude",
     desc: "Understand how consumers actually use your category — when, why, how often, and alongside what else. U&A studies build the foundational market map that strategy, innovation, and communication decisions all flow from.",
   },
   {
     Icon: Tag,
     title: "Pricing Research",
-    href: "/solutions/pricing-research",
     desc: "Find the price your market will pay — and the ceiling beyond which demand drops. We use Van Westendorp, Gabor-Granger, and conjoint techniques to give you a defensible, data-backed pricing architecture.",
   },
   {
     Icon: FlaskConical,
     title: "Product Testing & Concept",
-    href: "/solutions/product-testing-and-concept",
     desc: "Validate before you launch. From early concept screening to monadic product tests and pack design evaluation — we tell you what works, what doesn't, and what your target consumer actually wants from your product.",
   },
   {
     Icon: Megaphone,
     title: "Advertising Research",
-    href: "/solutions/advertising-research",
     desc: "Test your creative before it goes live — or diagnose why a campaign underperformed. Pre-testing, post-campaign evaluation, and message recall studies that give your marketing team clear direction, not just scores.",
   },
   {
     Icon: PieChart,
     title: "Consumer Segmentation",
-    href: "/solutions/consumer-segmentation",
     desc: "Stop marketing to everyone. Our segmentation studies identify the distinct consumer groups in your category — profiling each by attitudes, behaviours, and needs — so you can target, position, and communicate with precision.",
   },
 ];
@@ -64,20 +57,17 @@ const stats = [
   { value: "300+", label: "Brands Served" },
 ];
 
-// ─── Reusable card ─────────────────────────────────────────────────────────────
-function SolutionCard({ Icon, title, href, desc, featured = false }) {
+// ─── Reusable card (Href Removed, UI Same) ─────────────────────────────────────
+function SolutionCard({ Icon, title, desc, featured = false }) {
   if (featured) {
     return (
-      <Link
-        href={href}
-        className="group flex flex-col sm:flex-row items-start gap-6 bg-[#f8f6fc] rounded-2xl p-8 mb-4 border border-border hover:border-accent/30 hover:shadow-[0_8px_40px_rgba(44,17,97,0.07)] transition-all duration-300"
-      >
+      <div className="group flex flex-col sm:flex-row items-start gap-6 bg-[#f8f6fc] rounded-2xl p-8 mb-4 border border-border hover:border-accent/30 hover:shadow-[0_8px_40px_rgba(44,17,97,0.07)] transition-all duration-300">
         <div className="w-12 h-12 rounded-2xl bg-accent/15 flex items-center justify-center shrink-0 group-hover:bg-accent/25 transition-colors">
           <Icon size={22} className="text-accent" />
         </div>
         <div className="flex-1">
           <div className="flex flex-wrap items-center gap-2 mb-2">
-            <h3 className="text-xl font-bold text-primary  transition-colors">
+            <h3 className="text-xl font-bold text-primary transition-colors">
               {title}
             </h3>
             <span className="text-[10px] font-bold bg-accent/10 text-accent px-2.5 py-0.5 rounded-full">
@@ -96,15 +86,12 @@ function SolutionCard({ Icon, title, href, desc, featured = false }) {
             />
           </span>
         </div>
-      </Link>
+      </div>
     );
   }
 
   return (
-    <Link
-      href={href}
-      className="group flex flex-col border border-border rounded-2xl p-6 hover:border-accent/30 hover:shadow-[0_4px_24px_rgba(44,17,97,0.07)] transition-all duration-300 bg-white"
-    >
+    <div className="group flex flex-col border border-border rounded-2xl p-6 hover:border-accent/30 hover:shadow-[0_4px_24px_rgba(44,17,97,0.07)] transition-all duration-300 bg-white">
       <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors shrink-0">
         <Icon size={18} className="text-accent" />
       </div>
@@ -121,7 +108,7 @@ function SolutionCard({ Icon, title, href, desc, featured = false }) {
           className="group-hover:translate-x-0.5 transition-transform"
         />
       </span>
-    </Link>
+    </div>
   );
 }
 
@@ -132,7 +119,6 @@ export default function SolutionsPage() {
       {/* ══ HERO ══ */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-0">
-          {/* Heading + stats */}
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 pb-12">
             <div className="max-w-2xl">
               <h1 className="text-5xl sm:text-6xl font-black text-primary leading-[1.05] tracking-tight mb-5">
@@ -143,14 +129,13 @@ export default function SolutionsPage() {
                 is actually asking.
               </h1>
               <p className="text-lg text-black leading-relaxed max-w-lg">
-                Business problems don't come labelled with a methodology. Our
+                Business problems don&apos;t come labelled with a methodology. Our
                 solutions are organised around the decisions you need to make —
                 so you find the right research framework without needing to know
                 the jargon.
               </p>
             </div>
 
-            {/* Stat pills */}
             <div className="flex flex-wrap lg:flex-nowrap gap-4 shrink-0">
               {stats.map((s) => (
                 <div
@@ -168,7 +153,6 @@ export default function SolutionsPage() {
             </div>
           </div>
 
-          {/* Single tab — By Business Need */}
           <nav
             className="border-t border-border -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8"
             aria-label="Solution categories"
@@ -176,7 +160,7 @@ export default function SolutionsPage() {
             <div className="flex overflow-x-auto no-scrollbar">
               <a
                 href="#by-business-need"
-                className="shrink-0 px-6 py-4 text-sm font-semibold text-foreground  hover:text-primary border-b-2 border-transparent hover:border-accent transition-all duration-150 whitespace-nowrap"
+                className="shrink-0 px-6 py-4 text-sm font-semibold text-foreground hover:text-primary border-b-2 border-transparent hover:border-accent transition-all duration-150 whitespace-nowrap"
               >
                 By Business Need
               </a>
@@ -187,16 +171,12 @@ export default function SolutionsPage() {
 
       {/* ══ BODY ══ */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* ── Section: By Business Need ── */}
         <section
           id="by-business-need"
           aria-labelledby="h-by-business-need"
           className="py-16 md:py-20 border-b border-border"
         >
           <div className="mb-10">
-            {/* <span className="text-[10px] font-black uppercase tracking-[0.3em] text-accent/60">
-              01
-            </span> */}
             <h2
               id="h-by-business-need"
               className="text-3xl font-black text-primary mt-1"
@@ -204,34 +184,27 @@ export default function SolutionsPage() {
               By Business Need
             </h2>
             <p className="text-base text-black mt-1">
-              Start with your question. We'll match you to the right approach.
+              Start with your question. We&apos;ll match you to the right approach.
             </p>
           </div>
 
-          {/* Featured first — Brand Health */}
           <SolutionCard {...solutions[0]} featured />
 
-          {/* Next 3 — full grid row */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4 ">
-            {solutions.slice(1, 4).map((svc) => (
-              <SolutionCard key={svc.href} {...svc} />
+            {solutions.slice(1, 4).map((svc, index) => (
+              <SolutionCard key={index} {...svc} />
             ))}
           </div>
 
-          {/* Last 3 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {solutions.slice(4).map((svc) => (
-              <SolutionCard key={svc.href} {...svc} />
+            {solutions.slice(4).map((svc, index) => (
+              <SolutionCard key={index} {...svc} />
             ))}
           </div>
         </section>
 
-        {/* ── How it works — simple 3-step strip ── */}
         <section className="py-16 md:py-20" aria-labelledby="h-how">
           <div className="mb-10">
-            {/* <span className="text-[10px] font-black uppercase tracking-[0.3em] text-accent/60">
-              02
-            </span> */}
             <h2 id="h-how" className="text-3xl font-black text-primary mt-1">
               How it works
             </h2>
@@ -268,7 +241,7 @@ export default function SolutionsPage() {
                 <h3 className="text-[15px] font-bold text-primary mb-2">
                   {title}
                 </h3>
-                <p className="text-sm text-black   leading-relaxed">
+                <p className="text-sm text-black leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -277,7 +250,6 @@ export default function SolutionsPage() {
         </section>
       </div>
 
-      {/* ══ CTA — white ══ */}
       <SolutionsCTA />
     </main>
   );
