@@ -1,26 +1,6 @@
 "use client";
 import Link from "next/link";
-import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
-import FlaskConical from "lucide-react/dist/esm/icons/flask-conical";
-import BarChart2 from "lucide-react/dist/esm/icons/bar-chart-2";
-import Globe from "lucide-react/dist/esm/icons/globe";
-import BookOpen from "lucide-react/dist/esm/icons/book-open";
-import Database from "lucide-react/dist/esm/icons/database";
-import TrendingUp from "lucide-react/dist/esm/icons/trending-up";
-import Map from "lucide-react/dist/esm/icons/map";
-import Search from "lucide-react/dist/esm/icons/search";
-import Briefcase from "lucide-react/dist/esm/icons/briefcase";
-import Code2 from "lucide-react/dist/esm/icons/code-2";
-import Languages from "lucide-react/dist/esm/icons/languages";
-import Rocket from "lucide-react/dist/esm/icons/rocket";
-import GraduationCap from "lucide-react/dist/esm/icons/graduation-cap";
-import ShoppingBag from "lucide-react/dist/esm/icons/shopping-bag";
-import Users from "lucide-react/dist/esm/icons/users";
-import Sprout from "lucide-react/dist/esm/icons/sprout";
-import Monitor from "lucide-react/dist/esm/icons/monitor";
-import Building2 from "lucide-react/dist/esm/icons/building-2";
-import Store from "lucide-react/dist/esm/icons/store";
-import ChevronRight from "lucide-react/dist/esm/icons/chevron-right";
+import { ArrowRight, FlaskConical, BarChart2, Globe, BookOpen, Database, TrendingUp, Map, Search, Briefcase, Code2, Languages, Rocket, GraduationCap, ShoppingBag, Users, Sprout, Monitor, Building2, Store, ChevronRight } from "lucide-react";
 import ServicesCTA from "./ServicesCTA";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -164,72 +144,31 @@ const categories = [
 ];
 
 const stats = [
-  { value: "1M+", label: "Consumer Panel" }, // 1,000,000+ verified panel
-  { value: "1000+", label: "Active Clients" }, // Over 300 active clients
-  { value: "5000+", label: "Projects Delivered" }, // 2,000+ projects
-  { value: "20+", label: "Years of Service" }, // 1,000+ freelance researchers
+  { value: "1M+", label: "Consumer Panel", desc: "Access to a vast network of verified respondents for diverse insights." },
+  { value: "1000+", label: "Active Clients", desc: "Trusted by global leaders for consistent and reliable research data." },
+  { value: "5000+", label: "Projects Delivered", desc: "A proven track record of successful high-impact research studies." },
+  { value: "20+", label: "Years of Service", desc: "Decades of deep domain expertise in the Indian market." },
 ];
 
-// ─── Reusable card ─────────────────────────────────────────────────────────────
-function ServiceCard({ Icon, title, href, desc, featured = false }) {
-  if (featured) {
-    return (
-      <Link
-        href={href}
-        className="group flex flex-col sm:flex-row items-start gap-6 bg-[#f8f6fc] rounded-2xl p-8 mb-4 border border-border hover:border-accent/30 hover:shadow-[0_8px_40px_rgba(44,17,97,0.07)] transition-all duration-300"
-      >
-        {/* ✅ Icon fix — use variable, not JSX tag syntax */}
-        <div className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-accent/25 transition-colors">
-          <Icon size={22} className="text-accent" />
-        </div>
-        <div className="flex-1">
-          <div className="flex flex-wrap items-center gap-2 mb-2">
-            <h3 className="text-xl font-bold text-primary transition-colors">
-              {title}
-            </h3>
-            <span className="text-[10px] font-bold  text-accent px-2.5 py-0.5 rounded-full">
-              Most Popular
-            </span>
-          </div>
-          <p className="text-sm text-black leading-relaxed max-w-xl">
-            {desc}
-          </p>
-          {/* Learn more — always visible */}
-          <span className="inline-flex items-center gap-1.5 mt-4 text-sm font-bold text-accent">
-            Learn more{" "}
-            <ArrowRight
-              size={13}
-              strokeWidth={2.5}
-              className="group-hover:translate-x-1 transition-transform"
-            />
-          </span>
-        </div>
-      </Link>
-    );
-  }
-
+// ─── Reusable card (Unified Design) ─────────────────────────────────────────────
+function UnifiedServiceCard({ Icon, title, href, desc }) {
   return (
     <Link
       href={href}
-      className="group flex flex-col border border-border rounded-2xl p-6 hover:border-accent/30 hover:shadow-[0_4px_24px_rgba(44,17,97,0.07)] transition-all duration-300 bg-white"
+      className="group flex flex-col border border-accent rounded-xl p-6 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300"
     >
-      <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors shrink-0">
-        <Icon size={18} className="text-accent" />
+      <div className="flex items-center justify-between mb-4">
+        <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+          <Icon size={18} className="text-accent" />
+        </div>
+        <ArrowRight size={18} className="text-black group-hover:translate-x-1 transition-transform" />
       </div>
-      <h3 className="text-[15px] font-bold text-primary mb-2 group-hover:text-accent transition-colors leading-snug">
+      <h3 className="text-[15px] font-black text-primary mb-2 uppercase tracking-wide">
         {title}
       </h3>
-      <p className="text-sm text-black leading-relaxed flex-1">
+      <p className="text-sm text-slate-600 leading-relaxed flex-1">
         {desc}
       </p>
-      {/* Learn more — always visible */}
-      <span className="inline-flex items-center gap-1 mt-4 text-sm font-bold text-accent">
-        Learn more{" "}
-        <ChevronRight
-          size={14}
-          className="group-hover:translate-x-0.5 transition-transform"
-        />
-      </span>
     </Link>
   );
 }
@@ -238,237 +177,90 @@ function ServiceCard({ Icon, title, href, desc, featured = false }) {
 export default function ServicesPage() {
   return (
     <main className="bg-white min-h-screen">
-
-{/* ══ HERO — Minimalist Arrow & Adjusted Padding ══ */}
-<section className="bg-white overflow-hidden min-h-[85vh] flex flex-col justify-center">
-  {/* Added mt-2.5 (approx 10px / 0.25cm) for the requested top spacing shift */}
-  <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6 mt-5.5">
-    
-    {/* Label */}
-    <div className="mb-4">
-      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-        NexGen Research Services
-      </span>
-    </div>
-
-    {/* Heading - Full Length */}
-    <div className="w-full mb-6">
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary leading-[1.1] tracking-tight mb-4">
-        20+ years of experience. <span className="text-accent">One unified framework.</span>
-      </h1>
-      <p className="text-base sm:text-lg leading-relaxed text-slate-600 w-full">
-        From qualitative discovery to large-scale data collection — every NexGen service 
-        runs on the same six-stage research process, applied consistently across methods and sectors worldwide.
-      </p>
-    </div>
-
-    {/* Differentiation Line - Green Accent Theme */}
-    <div className="w-full border-t border-dashed border-accent/50 mb-10"></div>
-
-    {/* Action Cards - Thin Green Border & Minimal Black Arrow */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {stats.map((s) => (
-        <div
-          key={s.label}
-          className="group flex flex-col p-5 border border-accent rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300"
-        >
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-2xl font-black text-primary tracking-tight">
-              {s.value}
+      {/* ══ HERO ══ */}
+      <section className="bg-white overflow-hidden min-h-[85vh] flex flex-col justify-center border-b border-border">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6 mt-5.5">
+          <div className="mb-4">
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
+              NexGen Research Services
             </span>
-            {/* Circle removed, Arrow is now solid black */}
-            <ArrowRight 
-              size={20} 
-              className="text-black group-hover:translate-x-1 transition-transform duration-200" 
-            />
           </div>
-          <h3 className="text-xs font-black text-slate-900 uppercase tracking-wide mb-2">
-            {s.label}
-          </h3>
-          <p className="text-[12px] text-slate-500 leading-snug">
-            Expertly managed consistent methodology for research quality.
-          </p>
-        </div>
-      ))}
-    </div>
 
-    {/* Bottom Nav - Clean & Compact */}
-    <nav className="mt-10 border-t border-slate-100 pt-2">
-      <div className="flex items-center gap-6 overflow-x-auto no-scrollbar py-3">
-        <div className="shrink-0 border-r border-slate-200 pr-5">
-          <Search size={18} className="text-slate-400" />
-        </div>
-        <div className="flex gap-6">
-          {categories.map((cat) => (
-            <a
-              key={cat.id}
-              href={`#${cat.id}`}
-              className="shrink-0 text-[11px] font-bold text-slate-500 hover:text-accent transition-colors whitespace-nowrap uppercase tracking-widest"
-            >
-              {cat.label}
-            </a>
-          ))}
-        </div>
-      </div>
-    </nav>
-  </div>
-</section>
-      {/* ══ BODY ══ */}
-      <div id="services" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* ── Section 1: Research Method ── */}
-        <section
-          id={categories[0].id}
-          aria-labelledby="h-research-method"
-          className="py-16 md:py-20 border-b border-border"
-        >
-          <div className="mb-10">
-            {/* <span className="text-[10px] font-black uppercase tracking-[0.3em] text-accent/60">
-              01
-            </span> */}
-            <h2
-              id="h-research-method"
-              className="text-3xl font-black text-primary mt-1"
-            >
-              {categories[0].label}
-            </h2>
-            <p className="text-base text-black mt-1">
-              {categories[0].tagline}
+          <div className="w-full mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary leading-[1.1] tracking-tight mb-4">
+              20+ years of experience <br/>
+              <span className="text-accent">One unified framework.</span>
+            </h1>
+            <p className="text-base sm:text-lg leading-relaxed text-slate-600 w-full">
+              From qualitative discovery to large-scale data collection — every NexGen service 
+              runs on the same six-stage research process, applied consistently across methods and sectors worldwide.
             </p>
           </div>
 
-          {/* Featured first */}
-          <ServiceCard {...categories[0].services[0]} featured />
+          <div className="w-full border-t border-dashed border-accent/50 mb-10"></div>
 
-          {/* Rest — 2 col / 4 col */}
+          {/* Stats Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {categories[0].services.slice(1).map((svc) => (
-              <ServiceCard key={svc.href} {...svc} />
+            {stats.map((s) => (
+              <div key={s.label} className="group flex flex-col p-5 border border-accent rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-2xl font-black text-primary tracking-tight">{s.value}</span>
+                  <ArrowRight size={20} className="text-black group-hover:translate-x-1 transition-transform duration-200" />
+                </div>
+                <h3 className="text-xs font-black text-slate-900 uppercase tracking-wide mb-2">{s.label}</h3>
+                <p className="text-[12px] text-slate-500 leading-snug">{s.desc}</p>
+              </div>
             ))}
           </div>
-        </section>
 
-        {/* ── Section 2: Reports & Strategy — numbered list ── */}
-        <section
-          id={categories[1].id}
-          aria-labelledby="h-reports-strategy"
-          className="py-16 md:py-20 border-b border-border"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-10">
-            <div>
-              {/* <span className="text-[10px] font-black uppercase tracking-[0.3em] text-accent/60">
-                02
-              </span> */}
-              <h2
-                id="h-reports-strategy"
-                className="text-3xl font-black text-primary mt-1"
-              >
-                {categories[1].label}
-              </h2>
-              <p className="text-base text-black mt-1">
-                {categories[1].tagline}
-              </p>
+          {/* Bottom Nav */}
+          <nav className="mt-10 border-t border-slate-100 pt-2">
+            <div className="flex items-center gap-6 overflow-x-auto no-scrollbar py-3">
+              <div className="shrink-0 border-r border-slate-200 pr-5">
+                <Search size={18} className="text-slate-400" />
+              </div>
+              <div className="flex gap-6">
+                {categories.map((cat) => (
+                  <a key={cat.id} href={`#${cat.id}`} className="shrink-0 text-[11px] font-bold text-slate-500 hover:text-accent transition-colors whitespace-nowrap uppercase tracking-widest">
+                    {cat.label}
+                  </a>
+                ))}
+              </div>
             </div>
-            <span className="text-xs font-bold text-accent bg-accent/8 border border-accent/20 px-3 py-1 rounded-full self-start sm:self-auto">
-              {categories[1].services.length} services
-            </span>
-          </div>
+          </nav>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
-            {categories[1].services.map(({ Icon, title, href, desc }, idx) => (
-              <Link
-                key={href}
-                href={href}
-                className="group flex items-start gap-5 py-7 border-b border-border last:border-b-0 md:[&:nth-last-child(-n+2)]:border-b-0 -mx-4 px-4 rounded-xl transition-colors duration-200"
-              >
-                {/* <span className="text-[11px] font-black text-accent/35 tabular-nums w-5 shrink-0 mt-1">
-                  {String(idx + 1).padStart(2, "0")}
-                </span> */}
-                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
-                  <Icon size={17} className="text-accent" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-[15px] font-bold text-primary group-hover:text-accent transition-colors mb-1.5 leading-snug">
-                    {title}
-                  </h3>
-                  <p className="text-sm text-black leading-relaxed mb-3">
-                    {desc}
-                  </p>
-                  {/* Learn more — always visible */}
-                  <span className="inline-flex items-center gap-1 text-sm font-bold text-accent">
-                    Learn more
-                    <ArrowRight
-                      size={13}
-                      strokeWidth={2.5}
-                      className="group-hover:translate-x-0.5 transition-transform"
-                    />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* ── Section 3: Specialized — compact 4-col ── */}
-        <section
-          id={categories[2].id}
-          aria-labelledby="h-specialized"
-          className="py-16 md:py-20"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-10">
-            <div>
-              {/* <span className="text-[10px] font-black uppercase tracking-[0.3em] text-accent/60">
-                03
-              </span> */}
-              <h2
-                id="h-specialized"
-                className="text-3xl font-black text-primary mt-1"
-              >
-                {categories[2].label}
-              </h2>
-              <p className="text-base text-black mt-1">
-                {categories[2].tagline}
-              </p>
-            </div>
-            <span className="text-xs font-bold text-accent bg-accent/8 border border-accent/20 px-3 py-1 rounded-full self-start sm:self-auto">
-              {categories[2].services.length} services
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {categories[2].services.map(({ Icon, title, href, desc }) => (
-              <Link
-                key={href}
-                href={href}
-                className="group relative flex flex-col bg-white border border-border rounded-2xl p-6 hover:border-accent/30 hover:shadow-md transition-all duration-300"
-              >
-                <div
-                  className="absolute top-4 right-4 w-2 h-2 rounded-full bg-accent/20 group-hover:bg-accent transition-colors duration-300"
-                  aria-hidden="true"
-                />
-                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors shrink-0">
-                  <Icon size={17} className="text-accent" />
-                </div>
-                <h3 className="text-[14px] font-bold text-primary mb-2 group-hover:text-accent transition-colors leading-snug">
-                  {title}
-                </h3>
-                <p className="text-sm text-black leading-relaxed flex-1">
-                  {desc}
-                </p>
-                {/* Learn more — always visible */}
-                <span className="inline-flex items-center gap-1 mt-4 text-sm font-bold text-accent">
-                  Learn more{" "}
-                  <ChevronRight
-                    size={13}
-                    className="group-hover:translate-x-0.5 transition-transform"
-                  />
+      {/* ══ BODY ══ */}
+      <div id="services" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        {categories.map((category, index) => (
+          <section key={category.id} id={category.id} className="relative py-20 border-b border-slate-100 last:border-0">
+            {/* Main Content Area */}
+            <div className="mb-12">
+              <div className="flex items-baseline gap-4 mb-2">
+                {/* 01, 02, 03 Numbering directly before the label */}
+                <span className="text-2xl font-black text-accent tracking-tighter">
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-              </Link>
-            ))}
-          </div>
-        </section>
+                <h2 className="text-4xl font-black text-primary uppercase tracking-tight">
+                  {category.label}
+                </h2>
+              </div>
+              <p className="text-lg text-slate-500 font-medium pl-10">
+                {category.tagline}
+              </p>
+            </div>
+
+            {/* Grid 3 set format (Responsive 3-column) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {category.services.map((svc) => (
+                <UnifiedServiceCard key={svc.href} {...svc} />
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
 
-      {/* ══ CTA — white bg, accent accents ══ */}
       <ServicesCTA />
     </main>
   );

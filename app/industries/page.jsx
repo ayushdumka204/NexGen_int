@@ -1,15 +1,5 @@
 import Link from "next/link";
-import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
-import ChevronRight from "lucide-react/dist/esm/icons/chevron-right";
-import HeartPulse from "lucide-react/dist/esm/icons/heart-pulse";
-import Cpu from "lucide-react/dist/esm/icons/cpu";
-import Factory from "lucide-react/dist/esm/icons/factory";
-import Car from "lucide-react/dist/esm/icons/car";
-import GraduationCap from "lucide-react/dist/esm/icons/graduation-cap";
-import ShoppingCart from "lucide-react/dist/esm/icons/shopping-cart";
-import Landmark from "lucide-react/dist/esm/icons/landmark";
-import Building from "lucide-react/dist/esm/icons/building";
-import PackageOpen from "lucide-react/dist/esm/icons/package-open";
+import { ArrowRight, ChevronRight, HeartPulse, Cpu, Factory, Car, GraduationCap, ShoppingCart, Landmark, Building, PackageOpen, Search } from 'lucide-react';
 import IndustriesCTA from "./_components/IndustriesCTA";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -85,70 +75,33 @@ const categories = [
   },
 ];
 
-const stats = [
-  { value: "9", label: "Industries" },
-  { value: "11", label: "States Covered" },
-  { value: "2+", label: "Decade Experience" },
-  { value: "500+", label: "Studies Done" },
+// New Stats with relevant descriptions
+const heroStats = [
+  { value: "1M+", label: "Consumer Panel", desc: "Access to a vast network of verified respondents for diverse insights." },
+  { value: "1000+", label: "Active Clients", desc: "Trusted by global leaders for consistent and reliable research data." },
+  { value: "5000+", label: "Projects Delivered", desc: "A proven track record of successful high-impact research studies." },
+  { value: "20+", label: "Years of Service", desc: "Decades of deep domain expertise in the Indian market." },
 ];
 
-// ─── Reusable card ─────────────────────────────────────────────────────────────
+// ─── Reusable card (Updated with Stable Thin Green Borders) ────────────────────────
 function IndustryCard({ Icon, title, href, desc, featured = false }) {
-  if (featured) {
-    return (
-      <Link
-        href={href}
-        className="group flex flex-col sm:flex-row items-start gap-6 bg-[#f8f6fc] rounded-2xl p-8 mb-4 border border-border hover:border-accent/30 hover:shadow-[0_8px_40px_rgba(44,17,97,0.07)] transition-all duration-300"
-      >
-        <div className="w-12 h-12 rounded-2xl bg-accent/15 flex items-center justify-center shrink-0 group-hover:bg-accent/25 transition-colors">
-          <Icon size={22} className="text-accent" />
-        </div>
-        <div className="flex-1">
-          <div className="flex flex-wrap items-center gap-2 mb-2">
-            <h3 className="text-xl font-bold text-primary group-hover:text-accent transition-colors">
-              {title}
-            </h3>
-            <span className="text-[10px] font-bold bg-accent/10 text-accent px-2.5 py-0.5 rounded-full">
-              Top Sector
-            </span>
-          </div>
-          <p className="text-sm text-black leading-relaxed max-w-xl">
-            {desc}
-          </p>
-          <span className="inline-flex items-center gap-1.5 mt-4 text-sm font-bold text-accent">
-            Explore research{" "}
-            <ArrowRight
-              size={13}
-              strokeWidth={2.5}
-              className="group-hover:translate-x-1 transition-transform"
-            />
-          </span>
-        </div>
-      </Link>
-    );
-  }
-
   return (
     <Link
       href={href}
-      className="group flex flex-col border border-border rounded-2xl p-6 hover:border-accent/30 hover:shadow-[0_4px_24px_rgba(44,17,97,0.07)] transition-all duration-300 bg-white"
+      className={`group flex flex-col border border-accent rounded-xl p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300 ${featured ? 'lg:col-span-2' : ''}`}
     >
-      <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors shrink-0">
-        <Icon size={18} className="text-accent" />
+      <div className="flex items-center justify-between mb-4">
+        <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+          <Icon size={18} className="text-accent" />
+        </div>
+        <ArrowRight size={20} className="text-black group-hover:translate-x-1 transition-transform" />
       </div>
-      <h3 className="text-[15px] font-bold text-primary mb-2 group-hover:text-accent transition-colors leading-snug">
+      <h3 className="text-[15px] font-black text-primary mb-2 uppercase tracking-wide">
         {title}
       </h3>
-      <p className="text-sm text-black leading-relaxed flex-1">
+      <p className="text-sm text-slate-500 leading-relaxed flex-1">
         {desc}
       </p>
-      <span className="inline-flex items-center gap-1 mt-4 text-sm font-bold text-accent">
-        Learn more{" "}
-        <ChevronRight
-          size={14}
-          className="group-hover:translate-x-0.5 transition-transform"
-        />
-      </span>
     </Link>
   );
 }
@@ -157,159 +110,87 @@ function IndustryCard({ Icon, title, href, desc, featured = false }) {
 export default function IndustriesPage() {
   return (
     <main className="bg-white min-h-screen">
-      {/* ══ HERO ══ */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-0">
-          {/* Heading + stats */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 pb-12">
-            <div className="max-w-2xl">
-              <h1 className="text-5xl sm:text-6xl font-black text-primary leading-[1.05] tracking-tight mb-5">
-                Research built for
-                <br />
-                <span className="text-accent">your industry,</span>
-                <br />
-                not just your brief.
-              </h1>
-              <p className="text-lg text-black leading-relaxed max-w-lg">
-                Every industry has its own language, buyers, and decision
-                cycles. NexGen&apos;s sector specialists bring pre-built frameworks
-                and domain knowledge — so you get faster, sharper answers.
-              </p>
-            </div>
-
-            {/* Stat pills */}
-            <div className="flex flex-wrap lg:flex-nowrap gap-4 shrink-0">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="flex flex-col items-center justify-center bg-[#f8f6fc] rounded-2xl px-6 py-5 min-w-[96px] border border-border"
-                >
-                  <span className="text-3xl font-black text-primary leading-none">
-                    {s.value}
-                  </span>
-                  <span className="text-xs text-black font-semibold mt-1.5 text-center">
-                    {s.label}
-                  </span>
-                </div>
-              ))}
-            </div>
+      {/* ══ HERO — Single Window Optimized ══ */}
+      <section className="bg-white overflow-hidden min-h-[85vh] flex flex-col justify-center border-b border-border">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6 mt-5.5">
+          <div className="mb-4">
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
+              Sector Specialization
+            </span>
           </div>
 
-          {/* Category tab nav */}
-          <nav
-            className="border-t border-border -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8"
-            aria-label="Industry categories"
-          >
-            <div className="flex overflow-x-auto no-scrollbar">
-              {categories.map((cat) => (
-                <a
-                  key={cat.id}
-                  href={`#${cat.id}`}
-                  className="shrink-0 px-6 py-4 text-sm font-semibold text-primary hover:text-primary border-b-2 border-transparent hover:border-accent transition-all duration-150 whitespace-nowrap"
-                >
-                  {cat.label}
-                </a>
-              ))}
+          <div className="w-full mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary leading-[1.1] tracking-tight mb-4">
+              Research built for your industry, <br/><span className="text-accent">not just your brief.
+              </span>
+            </h1>
+            <p className="text-base sm:text-lg leading-relaxed text-slate-600 w-full">
+              Every industry has its own language, buyers, and decision cycles. NexGen&apos;s sector specialists bring 
+              pre-built frameworks and domain knowledge — so you get faster, sharper answers.
+            </p>
+          </div>
+
+          <div className="w-full border-t border-dashed border-accent/50 mb-10"></div>
+
+          {/* New Stats Cards with relevant descriptions */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {heroStats.map((s) => (
+              <div key={s.label} className="group flex flex-col p-5 border border-accent rounded-xl bg-white shadow-sm transition-all duration-300">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-2xl font-black text-primary tracking-tight">{s.value}</span>
+                  <ArrowRight size={20} className="text-black group-hover:translate-x-1 transition-transform" />
+                </div>
+                <h3 className="text-xs font-black text-slate-900 uppercase tracking-wide mb-2">{s.label}</h3>
+                <p className="text-[12px] text-slate-500 leading-snug">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Nav with Search */}
+          <nav className="mt-10 border-t border-slate-100 pt-2">
+            <div className="flex items-center gap-6 overflow-x-auto no-scrollbar py-3">
+              <div className="shrink-0 border-r border-slate-200 pr-5">
+                <Search size={18} className="text-slate-400" />
+              </div>
+              <div className="flex gap-6">
+                {categories.map((cat) => (
+                  <a key={cat.id} href={`#${cat.id}`} className="shrink-0 text-[11px] font-bold text-slate-500 hover:text-accent whitespace-nowrap uppercase tracking-widest">
+                    {cat.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </nav>
         </div>
       </section>
 
       {/* ══ BODY ══ */}
-      <div id="industries" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* ── Section 1: Primary Sectors — featured + grid ── */}
-        <section
-          id={categories[0].id}
-          aria-labelledby="h-primary"
-          className="py-16 md:py-20 border-b border-border"
-        >
-          <div className="mb-10">
-            {/* <span className="text-[10px] font-black uppercase tracking-[0.3em] text-accent/60">
-              01
-            </span> */}
-            <h2
-              id="h-primary"
-              className="text-3xl font-black text-primary mt-1"
-            >
-              {categories[0].label}
-            </h2>
-            <p className="text-base text-black mt-1">
-              {categories[0].tagline}
-            </p>
-          </div>
-
-          {/* Featured first */}
-          <IndustryCard {...categories[0].services[0]} featured />
-
-          {/* Rest — 2 col / 4 col */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {categories[0].services.slice(1).map((svc) => (
-              <IndustryCard key={svc.href} {...svc} />
-            ))}
-          </div>
-        </section>
-
-        {/* ── Section 2: More Industries — numbered list ── */}
-        <section
-          id={categories[1].id}
-          aria-labelledby="h-more"
-          className="py-16 md:py-20"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-10">
-            <div>
-              {/* <span className="text-[10px] font-black uppercase tracking-[0.3em] text-accent/60">
-                02
-              </span> */}
-              <h2 id="h-more" className="text-3xl font-black text-primary mt-1">
-                {categories[1].label}
-              </h2>
-              <p className="text-base text-black mt-1">
-                {categories[1].tagline}
-              </p>
+      <div id="industries" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        {categories.map((category) => (
+          <section key={category.id} id={category.id} className="mb-20 last:mb-0">
+            <div className="mb-10">
+              <h2 className="text-3xl font-black text-primary uppercase tracking-tight">{category.label}</h2>
+              <p className="text-slate-500 mt-2">{category.tagline}</p>
             </div>
-            <span className="text-xs font-bold text-accent bg-accent/8 border border-accent/20 px-3 py-1 rounded-full self-start sm:self-auto">
-              {categories[1].services.length} industries
-            </span>
-          </div>
-
-          {/* Two-column numbered list */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
-            {categories[1].services.map(({ Icon, title, href, desc }, idx) => (
-              <Link
-                key={href}
-                href={href}
-                className="group flex items-start gap-5 py-7 border-b border-border last:border-b-0 md:[&:nth-last-child(-n+2)]:border-b-0 hover:bg-[#f8f6fc] -mx-4 px-4 rounded-xl transition-colors duration-200"
-              >
-                {/* <span className="text-[11px] font-black text-accent/35 tabular-nums w-5 shrink-0 mt-1">
-                  {String(idx + 1).padStart(2, "0")}
-                </span> */}
-                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
-                  <Icon size={17} className="text-accent" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-[15px] font-bold text-primary group-hover:text-accent transition-colors mb-1.5 leading-snug">
-                    {title}
-                  </h3>
-                  <p className="text-sm text-black leading-relaxed mb-3">
-                    {desc}
-                  </p>
-                  <span className="inline-flex items-center gap-1 text-sm font-bold text-accent">
-                    Learn more
-                    <ArrowRight
-                      size={13}
-                      strokeWidth={2.5}
-                      className="group-hover:translate-x-0.5 transition-transform"
-                    />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {category.services.map((svc) => (
+                <IndustryCard key={svc.href} {...svc} />
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
 
-      {/* ══ CTA — white ══ */}
-      <IndustriesCTA />
+      {/* ══ CTA Section — Automatically controlled by IndustriesCTA component ══ */}
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-center">
+            <div className="w-full lg:w-[80%]">
+              <IndustriesCTA />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
