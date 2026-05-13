@@ -230,36 +230,35 @@ export default function ServicesPage() {
           </nav>
         </div>
       </section>
+{/* ══ BODY ══ */}
+<div id="services" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+  {categories.map((category, index) => (
+    <section key={category.id} id={category.id} className="relative py-24 border-b border-slate-100 last:border-0">
+      
+      {/* ── Background Numbering (01, 02, 03) - Large & Faded ── */}
+      <span className="absolute top-10 left-0 text-[140px] font-black text-slate-100/60 select-none -z-10 leading-none">
+        {String(index + 1).padStart(2, '0')}
+      </span>
 
-      {/* ══ BODY ══ */}
-      <div id="services" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        {categories.map((category, index) => (
-          <section key={category.id} id={category.id} className="relative py-20 border-b border-slate-100 last:border-0">
-            {/* Main Content Area */}
-            <div className="mb-12">
-              <div className="flex items-baseline gap-4 mb-2">
-                {/* 01, 02, 03 Numbering directly before the label */}
-                <span className="text-2xl font-black text-accent tracking-tighter">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h2 className="text-4xl font-black text-primary uppercase tracking-tight">
-                  {category.label}
-                </h2>
-              </div>
-              <p className="text-lg text-slate-500 font-medium pl-10">
-                {category.tagline}
-              </p>
-            </div>
+      {/* Main Content Area */}
+      <div className="mb-12 relative z-10">
+        <h2 className="text-4xl font-black text-primary uppercase tracking-tight">
+          {category.label}
+        </h2>
+        <p className="text-lg text-slate-500 font-medium mt-2">
+          {category.tagline}
+        </p>
+      </div>
 
-            {/* Grid 3 set format (Responsive 3-column) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {category.services.map((svc) => (
-                <UnifiedServiceCard key={svc.href} {...svc} />
-              ))}
-            </div>
-          </section>
+      {/* Grid 3 set format (Responsive 3-column) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {category.services.map((svc) => (
+          <UnifiedServiceCard key={svc.href} {...svc} />
         ))}
       </div>
+    </section>
+  ))}
+</div>
 
       <ServicesCTA />
     </main>
