@@ -8,7 +8,7 @@ export default function ContactPage() {
       
       {/* Header Placeholder (Updated with Bold Title and Subtitle) */}
       <div style={{ background: '#fff', padding: '25px 0', borderBottom: '1px solid #eee', textAlign: 'center' }}>
-        <div style={{ color: '#1e266d', fontSize: '28px', fontWeight: '900', textTransform: 'uppercase', marginBottom: '5px' }}>
+        <div style={{ color: '#2c1161', fontSize: '28px', fontWeight: '900', textTransform: 'uppercase', marginBottom: '5px' }}>
           CONTACT US
         </div>
         <div style={{ color: '#666', fontSize: '16px', fontWeight: '500' }}>
@@ -22,7 +22,7 @@ export default function ContactPage() {
           {/* LEFT SIDE: FORM SECTION */}
           <div style={{ flex: '1 1 650px', background: '#fff', padding: '40px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', borderRadius: '4px' }}>
             <div style={{ marginBottom: '30px' }}>
-              <p style={{ color: '#ff3131', fontSize: '14px', fontWeight: '600', margin: '0 0 5px 0' }}>
+              <p style={{ color: '#2c1161', fontSize: '14px', fontWeight: '600', margin: '0 0 5px 0' }}>
                 Let’s Connect With NexGen
               </p>
               <h2 style={{ fontSize: '32px', fontWeight: '800', color: '#333', margin: '0' }}>

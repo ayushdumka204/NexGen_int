@@ -321,24 +321,24 @@ export default function Navbar() {
             <NavLink href="/contact">Contact</NavLink>
           </nav>
 
-          {/* Right Side Buttons */}
           <div className="flex items-center gap-2 md:gap-3">
-            {/* Buttons visible > 640px (sm) - Will show on 1024px (lg) */}
+            {/* Join Paid Surveys - Outline to Solid */}
             <Link
               href="/company/join-paid-surveys"
-              className="hidden sm:inline-flex items-center rounded-full bg-accent px-4 py-2.5 text-[13px] font-bold text-white hover:bg-accent-hover transition-all duration-200 active:scale-95"
+              className="hidden sm:inline-flex items-center rounded-full border-2 border-primary bg-transparent px-4 py-2 text-[13px] font-bold text-primary transition-all duration-200 hover:bg-primary hover:text-white active:scale-95"
             >
               Join Paid Surveys
             </Link>
 
+            {/* Sign In/Up - Outline to Solid */}
             <Link
               href="/login"
-              className="hidden sm:inline-flex items-center rounded-full bg-primary px-6 py-2.5 text-[13px] font-bold text-white hover:bg-primary-hover transition-all duration-200 active:scale-95"
+              className="hidden sm:inline-flex items-center rounded-full border-2 border-primary bg-transparent px-6 py-2 text-[13px] font-bold text-primary transition-all duration-200 hover:bg-primary hover:text-white active:scale-95"
             >
               Sign in
             </Link>
 
-            {/* Hamburger Icon: Visible < 1280px (xl) - Will show on 1024px (lg) */}
+            {/* Hamburger Icon */}
             <button
               className="xl:hidden z-60 flex items-center justify-center p-2 text-primary hover:bg-muted rounded-md transition-colors"
               onClick={toggleMobileMenu}
@@ -577,18 +577,19 @@ export default function Navbar() {
                 <Link
                   href="/company/join-paid-surveys"
                   onClick={closeMobileMenu}
-                  className="flex justify-center items-center rounded-full bg-accent py-2.5 text-sm font-bold text-white shadow-sm"
+                  className="flex justify-center items-center rounded-full border-2 border-primary bg-transparent py-2 text-sm font-bold text-primary transition-all duration-300 hover:bg-primary hover:text-white shadow-sm"
                 >
                   Join Paid Surveys
                 </Link>
+                
                 <Link
                   href="/signin"
                   onClick={closeMobileMenu}
-                  className="flex justify-center items-center rounded-full bg-primary py-2.5 text-sm font-bold text-white"
+                  className="flex justify-center items-center rounded-full border-2 border-primary bg-primary py-2 text-sm font-bold text-white transition-all duration-300 hover:bg-primary/90"
                 >
                   Sign In
                 </Link>
-              </div>
+</div>
             </nav>
           </motion.div>
         )}

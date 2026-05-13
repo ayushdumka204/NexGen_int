@@ -95,7 +95,7 @@ const Footer = () => {
                 { label: "Qualitative Insights", href: "/services/qualitative-research" },
                 { label: "Data Collection", href: "/services/data-collection" },
                 { label: "Industries", href: "/industries" },
-                { label: "Contact Us", href: "/contact" },
+                { label: "Solutions", href: "/solutions" },
               ].map((item) => (
                 <Link
                   key={item.label}

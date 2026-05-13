@@ -238,64 +238,81 @@ function ServiceCard({ Icon, title, href, desc, featured = false }) {
 export default function ServicesPage() {
   return (
     <main className="bg-white min-h-screen">
-      {/* ══ HERO — white, open, airy ══ */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 pb-0">
-          {/* Heading + stats */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 pb-12">
-            <div className="max-w-2xl">
-              <h1 className="text-5xl sm:text-6xl font-black text-primary leading-[1.05] tracking-tight mb-5">
-                18 research
-                <br />
-                services. <span className="text-accent">One</span>
-                <br />
-                <span className="text-accent">unified framework.</span>
-              </h1>
-              <p className="text-lg leading-relaxed max-w-lg text-black">
-                From qualitative discovery to large-scale data collection —
-                every NexGen service runs on the same six-stage research
-                process, applied consistently across methods and sectors.
-              </p>
-            </div>
 
-            {/* Stat pills */}
-            <div className="flex flex-wrap lg:flex-nowrap gap-4 shrink-0">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="flex flex-col items-center justify-center rounded-2xl px-6 py-5 min-w-[96px] border border-border"
-                >
-                  <span className="text-3xl font-black text-primary leading-none">
-                    {s.value}
-                  </span>
-                  <span className="text-xs text-black font-semibold mt-1.5 text-center">
-                    {s.label}
-                  </span>
-                </div>
-              ))}
-            </div>
+{/* ══ HERO — Minimalist Arrow & Adjusted Padding ══ */}
+<section className="bg-white overflow-hidden min-h-[85vh] flex flex-col justify-center">
+  {/* Added mt-2.5 (approx 10px / 0.25cm) for the requested top spacing shift */}
+  <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6 mt-5.5">
+    
+    {/* Label */}
+    <div className="mb-4">
+      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
+        NexGen Research Services
+      </span>
+    </div>
+
+    {/* Heading - Full Length */}
+    <div className="w-full mb-6">
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary leading-[1.1] tracking-tight mb-4">
+        20+ years of experience. <span className="text-accent">One unified framework.</span>
+      </h1>
+      <p className="text-base sm:text-lg leading-relaxed text-slate-600 w-full">
+        From qualitative discovery to large-scale data collection — every NexGen service 
+        runs on the same six-stage research process, applied consistently across methods and sectors worldwide.
+      </p>
+    </div>
+
+    {/* Differentiation Line - Green Accent Theme */}
+    <div className="w-full border-t border-dashed border-accent/50 mb-10"></div>
+
+    {/* Action Cards - Thin Green Border & Minimal Black Arrow */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {stats.map((s) => (
+        <div
+          key={s.label}
+          className="group flex flex-col p-5 border border-accent rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-2xl font-black text-primary tracking-tight">
+              {s.value}
+            </span>
+            {/* Circle removed, Arrow is now solid black */}
+            <ArrowRight 
+              size={20} 
+              className="text-black group-hover:translate-x-1 transition-transform duration-200" 
+            />
           </div>
-
-          {/* Category tab nav */}
-          <nav
-            className="border-t border-border -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8"
-            aria-label="Service categories"
-          >
-            <div className="flex overflow-x-auto no-scrollbar">
-              {categories.map((cat) => (
-                <a
-                  key={cat.id}
-                  href={`#${cat.id}`}
-                  className="shrink-0 px-6 py-4 text-sm font-semibold text-primary hover:text-primary border-b-2 border-transparent hover:border-accent transition-all duration-150 whitespace-nowrap"
-                >
-                  {cat.label}
-                </a>
-              ))}
-            </div>
-          </nav>
+          <h3 className="text-xs font-black text-slate-900 uppercase tracking-wide mb-2">
+            {s.label}
+          </h3>
+          <p className="text-[12px] text-slate-500 leading-snug">
+            Expertly managed consistent methodology for research quality.
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
 
+    {/* Bottom Nav - Clean & Compact */}
+    <nav className="mt-10 border-t border-slate-100 pt-2">
+      <div className="flex items-center gap-6 overflow-x-auto no-scrollbar py-3">
+        <div className="shrink-0 border-r border-slate-200 pr-5">
+          <Search size={18} className="text-slate-400" />
+        </div>
+        <div className="flex gap-6">
+          {categories.map((cat) => (
+            <a
+              key={cat.id}
+              href={`#${cat.id}`}
+              className="shrink-0 text-[11px] font-bold text-slate-500 hover:text-accent transition-colors whitespace-nowrap uppercase tracking-widest"
+            >
+              {cat.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>
       {/* ══ BODY ══ */}
       <div id="services" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* ── Section 1: Research Method ── */}

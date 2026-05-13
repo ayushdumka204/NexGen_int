@@ -58,7 +58,7 @@ const WhatWeDo = () => {
 
             <div className="max-w-xl mx-auto lg:mx-0 space-y-6 text-black">
               <p className="text-lg leading-relaxed">
-                With over <span className="font-bold">18 years of excellence</span>, 
+                With over <span className="font-bold">20 years of excellence</span>, 
                 NexGen Market Research Services is a multidisciplinary agency 
                 specializing in end-to-end data collection and field-based insights.
               </p>
