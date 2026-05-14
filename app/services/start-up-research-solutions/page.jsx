@@ -1,15 +1,13 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import { Lightbulb, BarChart3, Globe, ShieldCheck } from "lucide-react";
+import { Lightbulb, BarChart3, Globe, ShieldCheck, CheckCircle } from "lucide-react";
 import ServicesCTA from "../_components/ServicesCTA";
 
 const data = {
-  // Title ko split kiya hai do colors ke liye
   titlePart1: "Start Up",
-  titlePart2: "Solution",
+  titlePart2: "Solutions",
   description:
-    "To serve exclusively to the market research agency for startups we have a separate division, Research360. We offer end to end, 360 degree services to startups. Our services includes:",
+    "To serve exclusively to the market research agency for startups we have a separate division, Research360. We offer end to end, 360 degree services to startups.",
   sections: [
     {
       category: "Business Registrations",
@@ -17,8 +15,7 @@ const data = {
       items: [
         {
           label: "Company Registrations",
-          detail:
-            "Private Limited company, LLP, Partnership or Proprietorship etc.",
+          detail: "Private Limited company, LLP, Partnership or Proprietorship etc.",
         },
         {
           label: "Other Registrations",
@@ -38,7 +35,7 @@ const data = {
           label: "Investment and Prospects",
           detail: "Ideal amount to be invested and future prospects.",
         },
-        { label: "Brand Name", detail: "Startup Name" },
+        { label: "Brand Name", detail: "Professional Startup Naming Services" },
       ],
     },
     {
@@ -47,14 +44,11 @@ const data = {
       items: [
         {
           label: "Feasibility Study",
-          // Added extra spacing for Market Research points
-          detail:
-            "a. Location analysis: Ideal location / cities to start the business\n\nb. Market overview and trend: Market size, competitors, growth, SWOT, etc.\n\nc. Consumer’s studies: Consumer’s perception, acceptance, customer engagement, psychometric analysis, habits, etc.",
+          detail: "Location analysis, Market overview, Trend analysis, and Consumer perception studies.",
         },
         {
           label: "Concept Test",
-          detail:
-            "Likeability of the new concept, willingness to go, cost willing to pay etc.",
+          detail: "Concept likeability, willingness to pay, and market acceptance analysis.",
         },
       ],
     },
@@ -63,65 +57,76 @@ const data = {
       icon: Globe,
       items: [
         {
-          label: "Website Design",
-          detail: "Website development and promotions.",
+          label: "Website & Digital",
+          detail: "Professional website development, promotions, and SEO strategies.",
         },
         {
-          label: "Digital Marketing",
-          detail:
-            "Online/ Google promotions, SEO, SMO, and lead generation, etc.",
+          label: "Marketing & Leads",
+          detail: "Google promotions, SMO, and high-quality lead generation.",
         },
       ],
     },
   ],
-  image:
-    "/start-up-sol.jpg",
 };
 
 export default function StartUpSolution() {
   return (
-    <div className="min-h-screen bg-white text-[var(--color-primary)] font-sans py-6 px-6 md:px-12">
-      {/* --- TOP HEADER (Centered) --- */}
-      <div className="max-w-4xl mx-auto text-center mb-16">
-        {/* Title with Split Colors */}
-        <h1 className="text-4xl md:text-6xl font-black tracking-tighter leading-none mb-6">
-          <span className="text-[var(--color-accent)]">{data.titlePart1}</span>{" "}
-          <span className="text-[var(--color-primary)]">{data.titlePart2}</span>
-        </h1>
-        {/* Description in Lowercase (Normal Sentence Case) */}
-        <p className="text-[14px] text-black md:text-base font-medium max-w-2xl mx-auto leading-relaxed">
-          {data.description}
-        </p>
-      </div>
+    <div className="bg-white min-h-screen text-foreground">
+      
+      {/* ── HERO SECTION (Split Layout) ── */}
+      <section className="py-20 md:py-28 px-6 md:px-12 lg:px-20 border-b border-slate-50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Side — 3-Line Heading */}
+          <div className="lg:col-span-6 space-y-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] italic">
+              <span className="text-[#2c1161] block">{data.titlePart1}</span>
+              <span className="text-[#80cb29] block">360° Research</span>
+              <span className="text-[#2c1161] block">{data.titlePart2}</span>
+            </h1>
+            <div className="w-24 h-2 bg-[#80cb29] rounded-full mt-4" />
+          </div>
 
-      {/* --- MAIN CONTENT & IMAGE GRID --- */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        {/* LEFT: Services Roadmap (8 Columns) */}
-        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Right Side — Description */}
+          <div className="lg:col-span-6 lg:pt-4">
+            <p className="text-xl md:text-2xl leading-relaxed text-slate-700 font-bold tracking-tight mb-6">
+              Research360: A separate division dedicated exclusively to empowering startups with data-driven foundations.
+            </p>
+            <p className="text-lg leading-relaxed text-slate-500 font-medium border-l-4 border-[#80cb29] pl-6 italic">
+              {data.description}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVICES GRID ── */}
+      <div className="max-w-7xl mx-auto px-6 py-24 space-y-24">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {data.sections.map((section, idx) => (
             <div
               key={idx}
-              className="p-8 border border-[var(--color-border)] rounded-2xl bg-gray-50/30 hover:shadow-xl transition-all duration-500"
+              className="group p-8 md:p-12 border border-slate-100 rounded-[2.5rem] bg-slate-50/30 hover:bg-white hover:border-[#80cb29]/30 hover:shadow-[0_20px_60px_rgba(44,17,97,0.05)] transition-all duration-500"
             >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-[var(--color-primary)] text-[var(--color-accent)] rounded-xl">
-                  <section.icon size={22} />
+              <div className="flex items-center gap-5 mb-10">
+                <div className="p-4 bg-[#2c1161] text-[#80cb29] rounded-2xl shadow-lg">
+                  <section.icon size={28} strokeWidth={2.5} />
                 </div>
-                <h3 className="text-lg font-black tracking-tight">
+                <h3 className="text-2xl md:text-3xl font-black text-[#2c1161] uppercase tracking-tighter">
                   {section.category}
                 </h3>
               </div>
 
-              <div className="space-y-8">
-                {" "}
-                {/* Increased vertical gap between items */}
+              <div className="space-y-10">
                 {section.items.map((item, i) => (
-                  <div key={i} className="group">
-                    <h4 className="text-base font-black tracking-wider text-black mb-2 group-hover:translate-x-1 transition-transform">
+                  <div key={i} className="relative pl-8">
+                    {/* Decorative Dot */}
+                    <div className="absolute left-0 top-2 w-2 h-2 rounded-full bg-[#80cb29]" />
+                    
+                    <h4 className="text-lg font-black text-[#2c1161] uppercase tracking-wide mb-3">
                       {item.label}
                     </h4>
-                    {/* detail text with whitespace-pre-line and better leading */}
-                    <p className="text-base text-black leading-[1.8] whitespace-pre-line">
+                    <p className="text-base text-slate-600 leading-relaxed font-medium">
                       {item.detail}
                     </p>
                   </div>
@@ -131,26 +136,27 @@ export default function StartUpSolution() {
           ))}
         </div>
 
-        {/* RIGHT: Featured Visual (4 Columns) - Sticky */}
-        <div className="lg:col-span-4">
-          <div className="relative h-[500px] aspect-[3/3] overflow-hidden border border-[var(--color-border)] shadow-sm">
-            <Image
-              src={data.image}
-              alt="StartUp Solutions"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/60 via-transparent to-transparent" />
-            <div className="absolute bottom-10 left-8 right-8">
-              <p className="text-white text-2xl font-black uppercase tracking-tighter leading-tight">
-                Empowering the next generation of innovators.
-              </p>
-            </div>
+        {/* ── ADDITIONAL TRUST BADGE ── */}
+        <div className="bg-[#2c1161] rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+          <div className="relative z-10">
+             <h3 className="text-white text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4">
+                Ready to scale your innovation?
+             </h3>
+             <p className="text-[#80cb29] text-sm md:text-base font-bold uppercase tracking-[0.2em]">
+                360° End-to-End Support for New Ventures
+             </p>
+          </div>
+          {/* Subtle BG Pattern */}
+          <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
+             <Globe size={300} className="text-white translate-x-1/2 -translate-y-1/2" />
           </div>
         </div>
+
+        {/* --- CTA --- */}
+        <div className="pt-10">
+          <ServicesCTA />
+        </div>
       </div>
-      <ServicesCTA />
     </div>
   );
 }

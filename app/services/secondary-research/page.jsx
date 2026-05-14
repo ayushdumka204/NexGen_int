@@ -55,9 +55,6 @@ export default function SecondaryResearchPage() {
               Desk Research & <br />
               <span className="text-[#80cb29]">Competitive Intelligence</span>
             </h2>
-            <p className="text-sm font-black text-[#80cb29] uppercase tracking-[0.3em] mt-4">
-               360-Degree Market Mapping
-            </p>
           </div>
 
           {/* Right — Detailed Content */}
