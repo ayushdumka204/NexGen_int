@@ -43,10 +43,10 @@ export default function QualityManagement() {
             What We Provide
           </span> */}
 
-          <h2 className="text-4xl md:text-5xl font-black text-(--color-primary) mt-4 leading-tight">
-            Operations & Quality 
-            <span className="text-accent"> Management</span>
-          </h2>
+      <h2 className="text-4xl md:text-5xl font-black text-(--color-primary) mt-4 leading-tight pl-4 md:pl-4">
+        Operations & Quality 
+        <span className="text-accent"> Management</span>
+      </h2>
         </div>
         {/* FEATURED IMAGE CARD */}
         <div className="relative rounded-3xl overflow-hidden mb-16 shadow-sm">
@@ -64,11 +64,13 @@ export default function QualityManagement() {
 
           {/* TEXT CONTENT */}
           <div className="absolute inset-0 flex items-center px-6 md:px-16">
-            <div className="max-w-lg text-white">
+            {/* max-w-lg hata diya taaki content poori width le sake */}
+            <div className="w-full max-w-7xl text-white"> 
               <p className="text-sm mb-4 text-accent font-bold uppercase tracking-wide">
                 Featured Insight
               </p>
-              <p className="text-lg leading-relaxed">
+              {/* text-lg ko thoda bada (text-xl ya 2xl) bhi kar sakta hai agar zyada khali lage */}
+              <p className="text-lg md:text-xl leading-relaxed">
                 NexGen has a proprietary{" "}
                 <span className="font-bold text-accent">
                   Quality Measurement Tool FactCheck
@@ -84,8 +86,9 @@ export default function QualityManagement() {
                 for quality control purposes.
               </p>
             </div>
-          </div>
+          </div>        
         </div>
+
         {/* CARDS GRID */}
         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-6 gap-8">
           {qualityFeatures.map((item) => (

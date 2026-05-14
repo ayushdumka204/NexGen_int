@@ -124,48 +124,55 @@ const tableRows = [
 export default function QualitativeResearchPage() {
   return (
     <div className=" min-h-screen bg-background">
-      {/* ── HERO ──────────────────────────────────────────────── */}
-      <section className="py-20 md:py-14 px-6 md:px-12 lg:px-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left — text */}
-          <div className="space-y-8">
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-              <span className="text-[var(--color-primary)]">
-                QUALITATIVE RESEARCH
-              </span>{" "}
-              <span className="text-[var(--color-accent)]">SERVICES</span>
-            </h1>
+{/* ── HERO ──────────────────────────────────────────────── */}
+<section className="py-16 md:py-12 px-6 md:px-12 lg:px-20 bg-white">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+    
+    {/* Left Side — Heading (Spans 5 columns) */}
+    <div className="lg:col-span-5">
+      <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tighter">
+        <span className="text-[#2c1161] block">
+          QUALITATIVE 
+        </span>
+        <span className="text-[#2c1161] block">
+          RESEARCH
+        </span>{" "}
+        <span className="text-[#80cb29] block mt-2">SERVICES</span>
+      </h1>
+      {/* Decorative Line */}
+      <div className="w-20 h-2 bg-[#80cb29] mt-8 rounded-full hidden lg:block" />
+    </div>
 
-            <div className="space-y-6 text-lg leading-relaxed text-black">
-              <p>
-                Quantitative data reveals the scale and direction of market
-                phenomena. Qualitative research reveals the reasoning behind
-                them — the attitudes, motivations, cultural contexts, and
-                emotional drivers that shape consumer behaviour. NexGen&apos;s
-                qualitative practice is built on a senior team of experienced
-                moderators, qualitative interviewers, and behavioural
-                researchers with deep expertise across healthcare, consumer
-                goods, financial services, retail, and social policy.
-              </p>
-              <p className="text-sm  italic border-l-2 border-[var(--color-accent)] pl-4 text-black">
-                All qualitative research at NexGen is conducted in accordance
-                with ESOMAR&apos;s guidelines for qualitative methods and the MRSI
-                Code of Conduct. Respondent anonymity is protected at all times;
-                participation is voluntary and fully informed.
-              </p>
-            </div>
-          </div>
+    {/* Right Side — Content (Spans 7 columns) */}
+    <div className="lg:col-span-7 space-y-8 lg:pl-10 border-t lg:border-t-0 lg:border-l border-slate-100 pt-8 lg:pt-0">
+      <div className="space-y-6 text-lg md:text-xl leading-relaxed text-slate-700 font-medium">
+        <p>
+          Quantitative data reveals the scale and direction of market
+          phenomena. Qualitative research reveals the reasoning behind
+          them — the attitudes, motivations, cultural contexts, and
+          emotional drivers that shape consumer behaviour.
+        </p>
+        <p>
+          NexGen&apos;s qualitative practice is built on a senior team of experienced
+          moderators, qualitative interviewers, and behavioural
+          researchers with deep expertise across healthcare, consumer
+          goods, financial services, retail, and social policy.
+        </p>
+      </div>
 
-          {/* Right — carousel replacing /mysteryshopping.png */}
-          <StatsCarousel
-            items={heroCarouselItems}
-            heading="Our Core Methods"
-            subheading="NexGen's four qualitative research methods"
-            interval={4500}
-            className="py-8 lg:py-0 text-black"
-          />
-        </div>
-      </section>
+      {/* Quote/Disclaimer Style */}
+      <div className="relative p-6 bg-slate-50 rounded-2xl border-l-4 border-[#80cb29]">
+        <p className="text-sm italic text-slate-600 leading-relaxed">
+          All qualitative research at NexGen is conducted in accordance
+          with ESOMAR&apos;s guidelines for qualitative methods and the MRSI
+          Code of Conduct. Respondent anonymity is protected at all times;
+          participation is voluntary and fully informed.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
       {/* ── METHODS ───────────────────────────────────────────── */}
       <section className="py-20 px-6 md:px-12 lg:px-20 bg-background">

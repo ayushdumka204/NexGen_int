@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 
-/* ─────────────────────────────────────────────
-   DEFAULT DATA — override via `items` prop
-───────────────────────────────────────────── */
-const DEFAULT_ITEMS = [
+const STATS_ITEMS = [
   {
     label: "Clients Served",
     value: "1000+",
@@ -28,171 +26,59 @@ const DEFAULT_ITEMS = [
   },
 ];
 
-/* ─────────────────────────────────────────────
-   CARD
-───────────────────────────────────────────── */
-function Card({ stat, dim }) {
+export default function StatsGrid() {
   return (
-    <div
-      className={`
-        w-full bg-white border border-[var(--color-border)] flex flex-col
-        items-center justify-center text-center
-        px-8 py-10 rounded-2xl transition-shadow duration-700
-        ${dim ? "shadow-none" : "shadow-[0_8px_40px_rgba(44,17,97,0.13)]"}
-      `}
-    >
-      <span
-        className={`text-[10px] font-black uppercase tracking-[0.3em] mb-4 ${
-          dim ? "text-[var(--color-primary)]/40" : "text-[var(--color-accent)]"
-        }`}
-      >
-        {stat.label}
-      </span>
-
-      <h3
-        className={`font-extrabold leading-tight tracking-tighter mb-4 break-words w-full text-center ${
-          stat.value.length > 8
-            ? "text-2xl sm:text-3xl"
-            : stat.value.length > 4
-              ? "text-4xl sm:text-5xl"
-              : "text-5xl sm:text-6xl"
-        } ${dim ? "text-[var(--color-primary)]/40" : "text-[var(--color-primary)]"}`}
-      >
-        {stat.value}
-      </h3>
-
-      <div
-        className={`w-10 h-[3px] rounded-full mb-5 ${
-          dim ? "bg-[var(--color-border)]" : "bg-[var(--color-accent)]"
-        }`}
-      />
-
-      {!dim && (
-        <p className="text-sm font-medium leading-relaxed max-w-[260px] text-black">
-          {stat.desc}
-        </p>
-      )}
-    </div>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   CAROUSEL
-   Props:
-   - items[]         — array of { label, value, desc }
-   - heading         — top accent label text
-   - subheading      — main bold heading below
-   - interval        — autoplay ms (default 5500)
-   - className       — extra classes on <section>
-───────────────────────────────────────────── */
-export default function StatsCarousel({
-  items = DEFAULT_ITEMS,
-  heading = "Our Reach & Track Record",
-  subheading = "Clients, Projects & Panel Size",
-  interval = 5500,
-  className = "",
-}) {
-  const total = items.length;
-  const [index, setIndex] = useState(0);
-  const timerRef = useRef(null);
-
-  const startTimer = () => {
-    clearInterval(timerRef.current);
-    timerRef.current = setInterval(
-      () => setIndex((prev) => (prev + 1) % total),
-      interval,
-    );
-  };
-
-  useEffect(() => {
-    startTimer();
-    return () => clearInterval(timerRef.current);
-  }, [total, interval]);
-
-  const goTo = (i) => {
-    if (i === index) return;
-    setIndex(i);
-    startTimer();
-  };
-
-  const wrap = (i) => ((i % total) + total) % total;
-  const prevIdx = wrap(index - 1);
-  const nextIdx = wrap(index + 1);
-
-  return (
-    <section
-      className={`w-full py-16 bg-white flex flex-col items-center justify-center overflow-hidden ${className}`}
-    >
-      {/* Heading */}
-      {(heading || subheading) && (
-        <div className="text-center mb-12 px-4">
-          {heading && (
-            <p className="text-2xl sm:text-3xl md:text-4xl font-black uppercase text-[var(--color-accent)] mb-1">
-              {heading}
-            </p>
-          )}
-          {subheading && (
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight leading-snug">
-              {subheading}
-            </h2>
-          )}
-          <div className="mx-auto mt-2 w-12 h-[3px] rounded-full bg-[var(--color-accent)]" />
-        </div>
-      )}
-
-      {/* Cards stage */}
-      <div className="relative w-full max-w-6xl flex items-center justify-center h-[250px]">
-        {/* LEFT */}
-        <div className="absolute left-0 sm:left-4 md:left-12 lg:left-20 z-10 pointer-events-none scale-[0.78] opacity-40">
-          <div className="w-[220px] sm:w-[260px] md:w-[320px]">
-            <Card stat={items[prevIdx]} dim />
-          </div>
+    <section className="w-full py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        {/* --- HEADING SECTION --- */}
+        <div className="text-center mb-16">
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-[#80cb29] mb-3">
+            Our Reach & Track Record
+          </p>
+          {/* Color changed to #2c1161 */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#2c1161] tracking-tighter">
+            Clients, Projects & Panel Size
+          </h2>
+          <div className="mx-auto mt-6 w-16 h-1.5 rounded-full bg-[#80cb29]" />
         </div>
 
-        {/* CENTER */}
-        <div
-          key={index}
-          className="relative z-20 w-[280px] sm:w-[320px] md:w-[380px] animate-card-in"
-        >
-          <Card stat={items[index]} />
-        </div>
+        {/* --- 2x2 GRID --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          {STATS_ITEMS.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              /* Border with subtle green theme (#80cb29 at 20% opacity) */
+              className="group relative bg-white p-10 border border-[#80cb29]/20 rounded-3xl transition-all duration-500 hover:shadow-[0_20px_50px_rgba(44,17,97,0.08)] hover:border-[#80cb29]/50 hover:-translate-y-1"
+            >
+              {/* Top Accent Label */}
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-hover:text-[#80cb29] transition-colors">
+                {item.label}
+              </span>
 
-        {/* RIGHT */}
-        <div className="absolute right-0 sm:right-4 md:right-12 lg:right-20 z-10 pointer-events-none scale-[0.78] opacity-40">
-          <div className="w-[220px] sm:w-[260px] md:w-[320px]">
-            <Card stat={items[nextIdx]} dim />
-          </div>
-        </div>
-      </div>
+              {/* Stat Value with #2c1161 */}
+              <h3 className="text-5xl md:text-6xl font-black text-[#2c1161] mt-4 mb-6 tracking-tighter">
+                {item.value}
+              </h3>
 
-      {/* Dots */}
-      <div className="flex gap-2.5 mt-10">
-        {items.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goTo(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`h-1.5 rounded-full transition-all duration-700 ${
-              i === index
-                ? "w-10 bg-[var(--color-accent)]"
-                : "w-2.5 bg-[var(--color-border)]"
-            }`}
-          />
-        ))}
+              {/* Minimalist Divider */}
+              <div className="w-12 h-1 bg-[#80cb29] rounded-full mb-6" />
+
+              {/* Description */}
+              <p className="text-slate-600 text-base font-medium leading-relaxed max-w-sm">
+                {item.desc}
+              </p>
+              
+              {/* Subtle Corner Decoration */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#80cb29]/5 rounded-tr-3xl rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-
-/*
-  ── REQUIRED: Add to globals.css ──────────────────────
-
-  @keyframes cardIn {
-    0%   { transform: scale(0.65); opacity: 0; }
-    60%  { transform: scale(1.03); opacity: 1; }
-    100% { transform: scale(1);    opacity: 1; }
-  }
-  .animate-card-in {
-    animation: cardIn 0.9s cubic-bezier(0.25, 1, 0.5, 1) both;
-  }
-*/

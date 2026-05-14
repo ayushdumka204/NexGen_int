@@ -10,16 +10,6 @@ const testimonials = [
     name: "Sonali Jain",
     title: "Academic Researcher",
   },
-  {
-    quote: "NexGen delivered high-quality CATI survey results on time. Their attention to detail in data cleaning was impressive. Will partner with them again.",
-    name: "Dr. Arvind Sharma",
-    title: "Market Insights Lead",
-  },
-  {
-    quote: "The precision in data collection provided by NexGen helped us finalize our product strategy confidently. Actionable intelligence indeed.",
-    name: "Meera Reddy",
-    title: "Strategic Solutions Dir.",
-  },
 ];
 
 export default function TestimonialStage() {

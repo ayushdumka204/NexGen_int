@@ -14,9 +14,7 @@ const QualityManagement = dynamic(
 const StatsCarousel = dynamic(
   () => import("./_components/_home/StatsCarousel"),
 );
-const InfiniteMovingCardsDemo = dynamic(
-  () => import("./_components/_home/InfiniteMovingCardsDemo"),
-);
+const Casestudy = dynamic(() => import("./_components/_home/CaseStudy"));
 // const GlobalImpact = dynamic(() => import("./_components/_home/GlobalImpact"));
 const FAQSection = dynamic(() => import("./_components/_home/FAQSection"));
 const HomeCTA = dynamic(() => import("./_components/_home/HomeCTA"));
@@ -36,7 +34,7 @@ export default function Home() {
       <DomainExpertise />
       <QualityManagement />
       <StatsCarousel />
-      <InfiniteMovingCardsDemo />
+      <Casestudy />
       <FAQSection />
       <HomeCTA />
     </div>

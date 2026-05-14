@@ -57,7 +57,7 @@ export default function HeroSection() {
     <div className="w-full h-[89dvh] overflow-x-clip">
       <section
         aria-label="Our offerings"
-        className="w-full h-full grid grid-cols-1 md:grid-cols-3 bg-primary"
+        className="w-full h-full grid grid-cols-1 md:grid-cols-3 bg-[#f7f8fc]"
       >
         {cards.map((card, i) => {
           const { Icon } = card;
@@ -77,22 +77,22 @@ export default function HeroSection() {
                 {/* Icon + Tag */}
                 <div className="flex items-center gap-2.5 mb-1">
                   <Icon
-                    className="text-accent shrink-0"
+                    className="text-[#2c1161] shrink-0"
                     size={20}
                     aria-hidden="true"
                   />
-                  <span className="text-base sm:text-lg font-extrabold tracking-wide text-accent">
-                    / {card.tag}
+                  <span className="text-base sm:text-lg font-extrabold tracking-wide text-[#2c1161]">
+                     {card.tag}
                   </span>
                 </div>
 
                 {/* Card heading */}
-                <h2 className="text-xl sm:text-2xl lg:text-[1.75rem] font-bold text-primary-foreground leading-tight tracking-tight mb-2">
+                <h2 className="text-xl sm:text-2xl lg:text-[1.75rem] font-bold text-[#2c1161] leading-tight tracking-tight mb-2">
                   {card.heading}
                 </h2>
 
                 {/* Description */}
-                <p className="text-sm sm:text-base lg:text-[1.05rem] text-primary-foreground/80 leading-relaxed line-clamp-3">
+                <p className="text-sm sm:text-base lg:text-[1.05rem] text-[#141111] leading-relaxed line-clamp-3">
                   {card.description}
                 </p>
               </div>
@@ -109,7 +109,7 @@ export default function HeroSection() {
                       className="object-cover object-center"
                       priority={isFirst}
                       sizes="(max-width: 767px) 100vw, 384px"
-                      quality={75}
+                      quality={95}
                     />
                   )}
 
@@ -117,12 +117,12 @@ export default function HeroSection() {
                   <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-black/80 to-transparent" />
 
                   {/* Button — pinned to bottom of image */}
-                  <div className="absolute inset-x-5 bottom-4">
-                    {card.cta.primary ? (
-                      <Link
-                        href={card.cta.href}
-                        className="group w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-accent text-accent-foreground font-bold text-sm hover:bg-accent-hover transition-colors duration-200 whitespace-nowrap"
-                      >
+<div className="absolute left-1/2 -translate-x-1/2 bottom-4 w-3/4">
+  {card.cta.primary ? (
+    <Link
+      href={card.cta.href}
+      className="group w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#80cb2c] text-accent-foreground font-bold text-sm hover:bg-accent-hover transition-colors duration-200 whitespace-nowrap"
+    >
                         <span>{card.cta.label}</span>
                         <ArrowRight
                           size={16}
