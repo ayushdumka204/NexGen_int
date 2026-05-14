@@ -50,9 +50,6 @@ export default function MysteryShoppingPage() {
               The Secret <br />
               <span className="text-[#80cb29]">Evaluator</span>
             </h2>
-            <p className="text-sm font-black text-[#80cb29] uppercase tracking-[0.3em] mt-4">
-               Unbiased Reality Checks
-            </p>
           </div>
 
           <div className="lg:col-span-7 space-y-10 lg:border-l lg:border-slate-100 lg:pl-12">
