@@ -53,7 +53,7 @@ const Footer = () => {
               </a>
 
               {/* Twitter */}
-              <a href="https://twitter.com/NexGen_Official" target="_blank" className="transition-transform hover:scale-110">
+              <a href="https://x.com/ResearchNexgen" target="_blank" className="transition-transform hover:scale-110">
                 <img src="twitter.png" alt="Twitter" className="h-7 w-7" />
               </a>
             </div>
