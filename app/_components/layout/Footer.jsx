@@ -51,6 +51,11 @@ const Footer = () => {
               <a href="https://www.youtube.com/@NexGenMarketResearch" target="_blank" className="transition-transform hover:scale-110">
                 <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" className="h-7 w-7" />
               </a>
+
+              {/* Twitter */}
+              <a href="https://twitter.com/NexGen_Official" target="_blank" className="transition-transform hover:scale-110">
+                <img src="twitter.png" alt="Twitter" className="h-7 w-7" />
+              </a>
             </div>
           </div>
 

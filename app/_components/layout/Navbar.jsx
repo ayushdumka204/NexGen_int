@@ -284,8 +284,7 @@ export default function Navbar() {
 
             {/* Insights */}
             <div className="relative group">
-              <Link
-                href="/insights"
+              <p
                 className="flex items-center gap-1 py-2 hover:text-accent transition-colors duration-200"
               >
                 Insights
@@ -293,7 +292,7 @@ export default function Navbar() {
                   size={16}
                   className="transition-transform duration-200 group-hover:rotate-180"
                 />
-              </Link>
+              </p>
               <div className="absolute top-full right-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="rounded-xl border border-border bg-white p-6 shadow-2xl min-w-50 flex gap-8">
                   <MenuColumn title="Content">
@@ -541,7 +540,7 @@ export default function Navbar() {
 
               <MobileDropdown
                 title="Insights"
-                href="/insights"
+
                 isOpen={activeMobileMenu === "insights"}
                 toggle={() => handleMobileDropdown("insights")}
                 closeMenu={closeMobileMenu}
