@@ -23,7 +23,13 @@ const Footer = () => {
             <h2 className="text-3xl font-black text-white tracking-tighter mb-5">
               NexGen<span className="text-accent"> Int.</span>
             </h2>
-
+            <p className="text-[15px] leading-relaxed mb-8 text-slate-200 font-medium">
+              Empowering global enterprises with high-precision data frameworks and strategic market insights.
+            </p>
+            
+            <p className="uppercase text-[11px] text-accent font-black tracking-[0.3em] mb-5">
+              FOLLOW US
+            </p>
 
             <div className="flex flex-wrap gap-5 items-center">
               {/* Facebook */}
