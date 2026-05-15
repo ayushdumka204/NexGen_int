@@ -46,6 +46,16 @@ const Footer = () => {
               <a href="https://www.instagram.com/nexgen_official_360/" target="_blank" className="transition-transform hover:scale-110">
                 <img src="https://cdn-icons-png.flaticon.com/512/15707/15707749.png" alt="Instagram" className="h-7 w-7" />
               </a>
+
+              {/* YouTube */}
+              <a href="https://www.youtube.com/@NexGenMarketResearch" target="_blank" className="transition-transform hover:scale-110">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" className="h-7 w-7" />
+              </a>
+
+              {/* Twitter */}
+              <a href="https://x.com/ResearchNexgen" target="_blank" className="transition-transform hover:scale-110">
+                <img src="twitter.png" alt="Twitter" className="h-7 w-7" />
+              </a>
             </div>
           </div>
 
