@@ -29,7 +29,6 @@ export default function TestimonialStage() {
               <HelpCircle className="text-accent" size={32} />
             </div>
           </div>
-
           <div className="flex justify-center gap-1.5 mt-4">
             <div className="w-16 h-1.5 bg-accent rounded-full" />
             <div className="w-4 h-1.5 bg-primary rounded-full" />
