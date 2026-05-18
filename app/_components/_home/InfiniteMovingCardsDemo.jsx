@@ -29,9 +29,6 @@ export default function TestimonialStage() {
               <HelpCircle className="text-accent" size={32} />
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-black text-primary uppercase tracking-tighter">
-            What Our <span className="text-accent">Clients Say</span>
-          </h2>
           <div className="flex justify-center gap-1.5 mt-4">
             <div className="w-16 h-1.5 bg-accent rounded-full" />
             <div className="w-4 h-1.5 bg-primary rounded-full" />
