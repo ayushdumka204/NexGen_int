@@ -27,9 +27,7 @@ const Footer = () => {
               Empowering global enterprises with high-precision data frameworks and strategic market insights.
             </p>
             
-            <p className="uppercase text-[11px] text-accent font-black tracking-[0.3em] mb-5">
-              FOLLOW US
-            </p>
+
 
             <div className="flex flex-wrap gap-5 items-center">
               {/* Facebook */}
